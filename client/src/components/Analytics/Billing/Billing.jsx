@@ -18,8 +18,8 @@ import { theme } from "../../../theme";
 const Billing = () => {
   return (
     <>
-      <Container sx={{ display: "flex", flexDirection: "row" }}>
-        <Box sx={{ p: 2, width: "100%" }} flex={1}>
+      <Container sx={{ display: "flex", flexDirection: "row", maxWidth:{xs:'100%', lg:'inherit'} }}>
+        <Box sx={{ p: 2, width: "50vw" }} flex={1}>
           <Typography variant="h3" sx={{ color: theme.palette.text.primary, fontWeight: theme.typography.fontWeightBold }}>
             Payment Method
           </Typography>
@@ -37,12 +37,13 @@ const Billing = () => {
               />
             </RadioGroup>
           </FormControl>
-          <Box sx={{ mt: 2, mb: 2 }}>
+          <Box sx={{ mt: 2, mb: 2, display:'flex' }}>
             <TextfieldComponent label="Name" />
-          </Box>
-          <Box sx={{ mt: 2, mb: 1 }}>
+            <Box sx={{ p: 1 }} />
             <TextfieldComponent label="Card" type="string" />
           </Box>
+          {/* <Box sx={{ mt: 2, mb: 1 }}>
+          </Box> */}
           <Box sx={{ display: "flex", mt: 2, mb: 2 }}>
             <TextfieldComponent label="Expiry Date" type="string" />
             <Box sx={{ p: 1 }} />
@@ -51,7 +52,7 @@ const Billing = () => {
           <Box sx={{}}>
             <Button
               variant="contained"
-              color="secondary"
+              color="info"
               sx={{
                 width: "100%",
                 maxWidth: "200px",
@@ -81,7 +82,7 @@ const Billing = () => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "flex-start",
-            maxHeight: "30vh",
+            maxHeight: "280px",
             width: "100%",
             maxWidth: 362,
           }}
@@ -131,7 +132,7 @@ const Billing = () => {
             </Typography>
           </Box>
           <Button
-            color="secondary"
+            color="info"
             variant="contained"
             sx={{ backgroundColor: theme.palette.secondary.main }}
           >

@@ -75,7 +75,7 @@ const AddNewJob = () => {
 
   return (
     <>
-      <Container sx={{ display: "flex", flexDirection: "column" }}>
+      <Container sx={{ display: "flex", flexDirection: "column", maxWidth: {xs:'100%', lg:'inherit'} }}>
         <Box sx={{ display: "flex", justifyContent: "space-between", pt: 3 }}>
           <TextField type={"text"} label="Job Title" sx={{ width: "100%" }} />
           <Box sx={{ p: 1 }} />
@@ -104,7 +104,7 @@ const AddNewJob = () => {
             <ComboBoxComponent data={stateData} label="State" />
           </Box>
           <Box sx={{ p: 1 }} />
-          <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
+          <Box sx={{ display: "flex", flexDirection: "column",width:'100%'}}>
             <PostfixDropdown items={SalaryTypes} />
             <Box sx={{ p: 1 }} />
             <TextField
@@ -131,7 +131,7 @@ const AddNewJob = () => {
               backgroundColor: theme.palette.secondary.main,
             }}
           >
-            <Typography variant="h6">SAVE CHANGES</Typography>
+            <Typography variant="h5" sx={{fontWeight:theme.typography.fontWeightBold}}>SAVE CHANGES</Typography>
           </Button>
           <Button
             color="inherit"
@@ -142,7 +142,7 @@ const AddNewJob = () => {
               border: "1px solid lightgrey",
             }}
           >
-            <Typography variant="h6">CANCEL</Typography>
+            <Typography variant="h5" sx={{fontWeight:theme.typography.fontWeightBold}}>CANCEL</Typography>
           </Button>
         </Box>
       </Container>

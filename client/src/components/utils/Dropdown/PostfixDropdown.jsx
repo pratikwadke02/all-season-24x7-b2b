@@ -29,7 +29,7 @@ const PostfixDropdown = (props) => {
 
   return (
     <>
-      <Box sx={{display:'flex', width:'100%', display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'flex-start', border:'1px solid'+theme.palette.text.secondary, borderRadius:'4px',maxWidth:542, maxHeight:50,  }}>
+      <Box sx={{display:'flex', width:'100%', display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'flex-start', border:'1px solid'+theme.palette.text.secondary, borderRadius:'4px',maxWidth:'100%', maxHeight:50,  }}>
         <Box sx={{width:'80%', borderRight:'1px solid'+theme.palette.text.secondary, mr:1}}>
             <NoBorderTextField 
                 id="outlined-basic" 
@@ -40,7 +40,7 @@ const PostfixDropdown = (props) => {
             />
         </Box>
         <Box>
-          <FormControl sx={{ minWidth:100, width:'100%' }}>
+          <FormControl sx={{ maxWidth:100, width:'100%' }}>
             <Select
               value={salary}
               onChange={handleChange}

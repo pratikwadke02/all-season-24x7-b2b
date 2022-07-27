@@ -24,6 +24,7 @@ const appsAndPagesData = [
     name: "Dashboard",
     icon: <HomeOutlinedIcon fontSize="large" />,
     link: "/",
+    isHeader: true,
     items: [
       {
         name: "CRM",
@@ -49,35 +50,39 @@ const userIntefaceData = [
     name: "Email",
     icon: <EmailOutlinedIcon fontSize="large" />,
     link: "/email",
+    isHeader: true,
   },
   {
     name: "Chat",
     icon: <ChatBubbleOutlineOutlinedIcon fontSize="large" />,
     link: "/chat",
+    isHeader: true,
   },
   {
     name: "Calendar",
     icon: <CalendarTodayIcon fontSize="large" />,
     link: "/calendar",
+    isHeader: true,
   },
   {
     name: "Invoice",
     icon: <CreditCardOutlinedIcon fontSize="large" />,
     link: "/invoice",
+    isHeader: true,
     items: [
       {
         name: "CRM",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/crm",
       },
       {
         name: "Analytics",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/analytics",
       },
       {
         name: "Test",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/test",
       },
     ],
@@ -86,20 +91,21 @@ const userIntefaceData = [
     name: "User",
     icon: <PersonOutlineOutlinedIcon fontSize="large" />,
     link: "/user",
+    isHeader: true,
     items: [
       {
         name: "CRM",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/crm",
       },
       {
         name: "Analytics",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/analytics",
       },
       {
         name: "Test",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/test",
       },
     ],
@@ -108,20 +114,21 @@ const userIntefaceData = [
     name: "Role",
     icon: <PersonOutlineOutlinedIcon fontSize="large" />,
     link: "/role",
+    isHeader: true,
     items: [
       {
         name: "CRM",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/crm",
       },
       {
         name: "Analytics",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/analytics",
       },
       {
         name: "Test",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/test",
       },
     ],
@@ -130,20 +137,21 @@ const userIntefaceData = [
     name: "Pages",
     icon: <ContentCopyOutlinedIcon fontSize="large" />,
     link: "/pages",
+    isHeader: true,
     items: [
       {
         name: "CRM",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/crm",
       },
       {
         name: "Analytics",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/analytics",
       },
       {
         name: "Test",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/test",
       },
     ],
@@ -152,6 +160,7 @@ const userIntefaceData = [
     name: "Dialogue Examples",
     icon: <StarBorderOutlinedIcon fontSize="large" />,
     link: "/dialogue",
+    isHeader: true,
   }
 ];
 
@@ -160,30 +169,33 @@ const formsAndTablesData = [
     name: "Typography",
     icon : <CreditCardOutlinedIcon fontSize="large" />,
     link: "/typography",
+    isHeader: true,
   },
   {
     name: "Icons",
     icon: <StarBorderOutlinedIcon fontSize="large" />,
     link: "/icons",
+    isHeader: true,
   },
   {
     name: "Card",
     icon: <CreditCardOutlinedIcon fontSize="large" />,
     link: "/card",
+    isHeader: true,
     items: [
       {
         name: "CRM",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/crm",
       },
       {
         name: "Analytics",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/analytics",
       },
       {
         name: "Test",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/test",
       },
     ],
@@ -192,20 +204,21 @@ const formsAndTablesData = [
     name: "Component",
     icon: <CreditCardOutlinedIcon fontSize="large" />,
     link: "/component",
+    isHeader: true,
     items: [
       {
         name: "CRM",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/crm",
       },
       {
         name: "Analytics",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/analytics",
       },
       {
         name: "Test",
-        icon: <CircleOutlined fontSize="large" />,
+        icon: <CircleOutlined fontSize="medium" />,
         link: "/test",
       },
     ],
@@ -218,7 +231,7 @@ const DashboardSidebar = () => {
 
   return (
     <>
-      <List sx={{ p: 1 }}>
+      <List sx={{ p: 1 , pt:2, pb:2}}>
         {appsAndPagesData.map((item, index) => {
           return <CollapseComponent {...item} key={index} />;
         })}
@@ -226,7 +239,7 @@ const DashboardSidebar = () => {
       <Divider textAlign="left" sx={{ pt: 1, pb: 1 }}>
         <Typography sx={{ mb: "-.75rem" }}>APPS & PAGES</Typography>
       </Divider>
-      <List sx={{ p: 1 }}>
+      <List sx={{ p: 1,  pt:2, pb:2 }}>
         {userIntefaceData.map((item, index) => {
           return <CollapseComponent {...item} key={index} />;
         })}
@@ -234,7 +247,7 @@ const DashboardSidebar = () => {
       <Divider textAlign="left" sx={{ pt: 1, pb: 1 }}>
         <Typography sx={{ mb: "-.75rem" }}>USER INTERFACE</Typography>
       </Divider>
-      <List sx={{ p: 1 }}>
+      <List sx={{ p: 1 , pt:2, pb:2}}>
         {formsAndTablesData.map((item, index) => {
           return <CollapseComponent {...item} key={index} />;
         })}

@@ -27,7 +27,7 @@ const TextfieldComponent = (props) => {
     id={props.id} 
     label={props.label} 
     variant="outlined" 
-    fullWidth
+    sx={{width:'100%'}}
     />
     </>
   )

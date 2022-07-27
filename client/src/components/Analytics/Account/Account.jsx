@@ -36,12 +36,12 @@ const Account = () => {
 
   return (
     <>
-      <Container sx={{ display: "flex",maxWidth:{xs:'100%', lg:'inherit'}, flexDirection: "column", alignItem: 'flex-start', justifyContent:'center'}}>
+      <Container sx={{ display: "flex",maxWidth:{xs:'100%', lg:'inherit'}, 
+      flexDirection: "column", alignItem: 'flex-start', justifyContent:'center',}}>
         <Box sx={{ display: "flex" }}>
           <Avatar sx={{ height: 120, width: 120, borderRadius:'4px' }} variant="square" />
           <Box
             sx={{
-              p: 1,
               display: "flex",
               flexDirection: "column",
               p: 2,
@@ -58,7 +58,7 @@ const Account = () => {
             >
               <Button
                 variant="contained"
-                color="secondary"
+                color="info"
                 sx={{
                   width: '260px',
                   backgroundColor: theme.palette.secondary.main,
@@ -70,7 +70,7 @@ const Account = () => {
               <Button
                 variant="outlined"
                 color="error"
-                sx={{ ml: 3, width: '8vh'}}
+                sx={{ ml: 3}}
               >
                 <Typography variant="h5" sx={{fontWeight: theme.typography.fontWeightBold}}>RESET</Typography>
               </Button>
@@ -105,7 +105,7 @@ const Account = () => {
             <Box sx={{ m: 1 }} />
             <SelectComponent items={items} label="Status" />
           </Box>
-          <Box sx={{ m: 1 }} />
+          <Box sx={{mr:2}} />
           <Box
             sx={{
               mb: 1,
@@ -126,6 +126,7 @@ const Account = () => {
             mt: 1,
             mb: 1,
             p: 2,
+            width: "97.5%",
             backgroundColor: theme.palette.warning.bg,
             borderRadius: "10px",
             display: "flex",
@@ -149,7 +150,7 @@ const Account = () => {
         <Box sx={{mt:2}}>
           <Button
             variant="contained"
-            color="secondary"
+            color="info"
             sx={{
               width: "100%",
               maxWidth: "200px",

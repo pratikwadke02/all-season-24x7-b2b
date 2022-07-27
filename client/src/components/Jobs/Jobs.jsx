@@ -28,7 +28,7 @@ const Jobs = () => {
           backgroundColor: theme.palette.background.default,
           borderRadius: "10px",
           maxWidth: 1132,
-          width: "100%",
+          maxWidth:{ xs:"100%" , lg:"inherit"},
         }}
       >
         <TabComponent data={data} />

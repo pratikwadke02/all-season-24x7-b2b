@@ -14,7 +14,7 @@ const Notification = () => {
 
   return (
     <>
-      <Container sx={{ display: "flex", flexDirection: "column", p: 3 }}>
+      <Container sx={{ display: "flex", flexDirection: "column",maxWidth:{xs:'100%', lg:'inherit'}, p: 3 }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <BarChartOutlinedIcon
             fontSize="large"
@@ -35,7 +35,7 @@ const Notification = () => {
         </Box>
         <Box sx={{ m: 2 }}>
           <Button
-            color="secondary"
+            color="info"
             variant="contained"
             sx={{
               width: "100%",

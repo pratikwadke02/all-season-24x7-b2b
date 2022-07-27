@@ -67,7 +67,7 @@ export default function TabComponent(props) {
               icon={item.icon} 
               iconPosition="start"
               {...a11yProps(index)} 
-              sx={{fontSize:theme.typography.h4}} />
+              sx={{fontSize:theme.typography.h3, mr:3}} />
           ))}
         </Tabs>
       </Box>

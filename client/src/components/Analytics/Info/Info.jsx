@@ -42,8 +42,10 @@ const Info = () => {
 
   return (
     <>
-      <Container sx={{ display: "flex", flexDirection: "column" }}>
+      <Container sx={{ display: "flex", flexDirection: "column", maxWidth:{xs:'100%', lg:'inherit'} }}>
+        <Box sx={{ display: "flex", width:'100%' }}>
         <MultilineTextfield label='Bio' />
+        </Box>
         <Box sx={{ display: "flex", flexDirection: "row", mt: 2, mb: 2 }}>
           <Box
             sx={{
@@ -113,7 +115,7 @@ const Info = () => {
         <Box sx={{ mt: 1 }}>
           <Button
             variant="contained"
-            color="secondary"
+            color="info"
             sx={{
               width: "100%",
               maxWidth: "200px",

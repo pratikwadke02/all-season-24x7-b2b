@@ -8,11 +8,11 @@ export const theme = createTheme({
       dark: "#424242",
     },
     secondary: {
-      main: "#9155fd", //for buttons
-      dark: "#9257fd", //for hover buttons
-      light: "#c4a4fe", //for hover buttons  and text background
-      hover: "#ede7f6", //for text
-      bg: "#f4f5fa", //for background
+      main: "#1554f6", //for buttons
+      dark: "#424242", //for hover buttons
+      light: "#2196f3", //for hover buttons  and text background
+      hover: "#e6edfe", //for text
+      bg: "#fafafa", //for background
     },
     text: {
       primary: "#544f5a", //for header and text

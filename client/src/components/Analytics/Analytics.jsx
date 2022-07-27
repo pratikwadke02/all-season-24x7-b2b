@@ -17,27 +17,27 @@ const Analytics = () => {
   const data = [
     {
       name: "Account",
-      icon: <SearchIcon />,
+      icon: <SearchIcon fontSize="large"/>,
       component: <Account />,
     },
     {
       name: "Security",
-      icon: <LockOpenOutlinedIcon />,
+      icon: <LockOpenOutlinedIcon fontSize="large"/>,
       component: <Security />,
     },
     {
       name: "Info",
-      icon: <InfoOutlinedIcon />,
+      icon: <InfoOutlinedIcon fontSize="large"/>,
       component: <Info />,
     },
     {
       name: "Billing",
-      icon: <BookmarkBorderOutlinedIcon />,
+      icon: <BookmarkBorderOutlinedIcon fontSize="large"/>,
       component: <Billing />,
     },
     {
       name: "Notification",
-      icon: <NotificationsNoneOutlinedIcon />,
+      icon: <NotificationsNoneOutlinedIcon fontSize="large"/>,
       component: <Notification />,
     },
   ];
@@ -48,7 +48,7 @@ const Analytics = () => {
         display:'flex',
         backgroundColor: theme.palette.background.default,
         borderRadius: "5px",
-        width: '100%',
+        // width: '',
         maxWidth: {lg: 'inherit'},
         height: '100%',
         alignItems: "center",

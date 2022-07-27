@@ -30,6 +30,7 @@ const MultilineTextfield = (props) => {
       cols={30}
       rows={2}
       multiline
+      sx={{width:'100%'}}
     />
   );
 };

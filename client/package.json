@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://pratikwadke02.github.io/all-season-24x7",
+  "homepage": "https://pratikwadke02.github.io/all-season-24x7-b2b",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
