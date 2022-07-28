@@ -28,8 +28,9 @@ export const theme = createTheme({
       border: "#e7e7e8",
     },
     error: {
-      main: "#ff4c51", //for text and buttons
-      bg: "#ffa5a8", //for background and outline
+      main: "#ff0000", //for text and buttons
+      bg: "#ffebeb",
+       //for background and outline
     },
     warning: {
       main: "#e5a200", //for warning text
@@ -39,6 +40,10 @@ export const theme = createTheme({
       main: "#8a8d93",
       dark: "#e03546",
       bg: "#fff",
+    },
+    active: {
+      main: "#56ca00",
+      bg: "#eaf5ea"
     },
     login: {
       main: "#1554f6",

@@ -1,10 +1,13 @@
 import React from 'react'
+import ListJobsHeader from './ListJobsHeader'
+import ListJobsMain from './ListJobsMain'
 
 const ListJobs = () => {
   return (
-    <div>
-        ListJobs
-    </div>
+    <>
+    <ListJobsHeader />
+    <ListJobsMain />
+    </>
   )
 }
 

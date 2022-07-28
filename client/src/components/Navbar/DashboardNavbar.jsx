@@ -248,8 +248,8 @@ export default function PersistentDrawerLeft() {
       </Drawer>
       <Main open={open} sx={{maxWidth:'1300px'}}>
         <DrawerHeader />
-        <Analytics />
-        {/* <Jobs /> */}
+        {/* <Analytics /> */}
+        <Jobs />
       </Main>
     </Box>
   );
