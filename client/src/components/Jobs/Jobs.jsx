@@ -11,12 +11,12 @@ const Jobs = () => {
   const data = [
     {
       name: "List Jobs",
-      icon: <SearchIcon />,
+      icon: <SearchIcon fontSize='large' />,
       component: <ListJobs />,
     },
     {
       name: "Add a new Job",
-      icon: <LockOpenOutlinedIcon />,
+      icon: <LockOpenOutlinedIcon fontSize='large' />,
       component: <AddNewJob />,
     },
   ];

@@ -24,7 +24,7 @@ const ListJobsHeader = () => {
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
-              mb: 1,
+              mb: 2,
             }}
           >
             <Typography

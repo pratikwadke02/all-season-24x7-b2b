@@ -75,8 +75,8 @@ const AddNewJob = () => {
 
   return (
     <>
-      <Container sx={{ display: "flex", flexDirection: "column", maxWidth: {xs:'100%', lg:'inherit'} }}>
-        <Box sx={{ display: "flex", justifyContent: "space-between", pt: 3 }}>
+      <Container sx={{ display: "flex", flexDirection: "column", maxWidth: {xs:'100%', lg:'inherit'},pb:2 }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <TextField type={"text"} label="Job Title" sx={{ width: "100%" }} />
           <Box sx={{ p: 1 }} />
           <TextField
@@ -99,7 +99,7 @@ const AddNewJob = () => {
           <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
             <TextField type={"text"} label="Required Skills" />
             <Box sx={{ p: 1 }} />
-            <SelectComponent items={contractTypes} />
+            <SelectComponent items={contractTypes} label="Contract Type" />
             <Box sx={{ p: 1 }} />
             <ComboBoxComponent data={stateData} label="State" />
           </Box>
@@ -124,7 +124,7 @@ const AddNewJob = () => {
         <Box>
           <Button
             variant="contained"
-            color="secondary"
+            color="info"
             sx={{
               width: "100%",
               maxWidth: "157px",

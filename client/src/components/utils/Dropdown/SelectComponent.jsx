@@ -34,16 +34,16 @@ const SelectComponent = (props) => {
     <>
     <Box>
     <FormControl sx={{width:'100%'}}>
-        <InputLabel id='select-label' color='secondary'>{label}</InputLabel>
+        <InputLabel id='select-label' color='primary'>{label}</InputLabel>
             <Select
-              sx={{
-                "&:hover": {
-                  "&& fieldset": {
-                    border: "1px solid"+theme.palette.secondary.main,
-                  }
-                },
-              }}
-              color='secondary'
+              // sx={{
+              //   "&:hover": {
+              //     "&& fieldset": {
+              //       border: "1px solid"+theme.palette.primary.main,
+              //     }
+              //   },
+              // }}
+              color='primary'
               labelId = 'select-label'
               value={value}
               onChange={handleChange}

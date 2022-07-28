@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { theme } from "../../theme";
 import { images } from "../../constants";
+import {Link} from "react-router-dom";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -71,7 +72,7 @@ const ProfileMenu = () => {
             }}
           >
             <Typography
-              variant="h6"
+              variant="h5"
               noWrap
               sx={{ fontWeight: theme.typography.fontWeightBold }}
             >
@@ -87,7 +88,7 @@ const ProfileMenu = () => {
       <MenuItem sx={{ maxHeight: "40px" }}>
         <IconButton>
           <PermIdentityOutlinedIcon fontSize="medium" />
-          <Typography variant="h6" noWrap sx={{ pl: 1 }}>
+          <Typography variant="h5" noWrap sx={{ pl: 1 }}>
             Profile
           </Typography>
         </IconButton>
@@ -95,12 +96,13 @@ const ProfileMenu = () => {
       <MenuItem>
         <IconButton>
           <HelpOutlineOutlinedIcon fontSize="medium" />
-          <Typography variant="h6" noWrap sx={{ pl: 1 }}>
+          <Typography variant="h5" noWrap sx={{ pl: 1 }}>
             FAQ
           </Typography>
         </IconButton>
       </MenuItem>
       {/* <Divider /> */}
+      <Link to="/login" style={{ textDecoration: "none" }}>
       <MenuItem
         sx={{
           maxHeight: "40px",
@@ -110,11 +112,12 @@ const ProfileMenu = () => {
       >
         <IconButton>
           <LogoutOutlinedIcon fontSize="medium" />
-          <Typography variant="h6" noWrap sx={{ pl: 1 }}>
+          <Typography variant="h5" noWrap sx={{ pl: 1 }}>
             Logout
           </Typography>
         </IconButton>
       </MenuItem>
+      </Link>
     </MenuList>
   );
 };

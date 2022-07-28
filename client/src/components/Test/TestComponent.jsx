@@ -20,15 +20,16 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
-import {Button} from '@mui/material';
+import {Button, Container} from '@mui/material';
 import { visuallyHidden } from '@mui/utils';
 import { theme } from '../../theme';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import EditIcon from '@mui/icons-material/Edit';
 import CloseIcon from '@mui/icons-material/Close';
 
-function createData(jobProfile, application, status, action) {
+function createData(id, jobProfile, application, status, action) {
   return {
+    id,
     jobProfile,
     application,
     status,
@@ -37,21 +38,10 @@ function createData(jobProfile, application, status, action) {
 }
 
 const rows = [
-  // createData('Cupcake', 305, 3.7, 67, 4.3),
-  // createData('Donut', 452, 25.0, 51, 4.9),
-  // createData('Eclair', 262, 16.0, 24, 6.0),
-  // createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  // createData('Gingerbread', 356, 16.0, 49, 3.9),
-  // createData('Honeycomb', 408, 3.2, 87, 6.5),
-  // createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  // createData('Jelly Bean', 375, 0.0, 94, 0.0),
-  // createData('KitKat', 518, 26.0, 65, 7.0),
-  // createData('Lollipop', 392, 0.2, 98, 0.0),
-  // createData('Marshmallow', 318, 0, 81, 2.0),
-  // createData('Nougat', 360, 19.0, 9, 37.0),
-  // createData('Oreo', 437, 18.0, 63, 4.0),
-  createData('Job Profile 1', 'View Applicants(10)', 'Closed', 'icons'),
-  createData('Job Profile 2', 'View Applicants(10)', 'Active', 'icons'),
+  createData(1, 'Job Profile 1', 'View Applicants (10)', 'Closed', 'icons'),
+  createData(2, 'Job Profile 2', 'View Applicants (10)', 'Active', 'icons'),
+  createData(3, 'Job Profile 3', 'View Applicants (10)', 'Closed', 'icons'),
+  createData(4, 'Job Profile 4', 'View Applicants (10)', 'Active', 'icons'),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -121,7 +111,7 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox">
+        <TableCell padding="checkbox" align='center'>
           <Checkbox
             color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
@@ -145,9 +135,13 @@ function EnhancedTableHead(props) {
               direction={orderBy === headCell.id ? order : 'asc'}
               onClick={createSortHandler(headCell.id)}
             >
-              {headCell.label}
+              <Box sx={{display:'row', flexDirection:'row', justifyContent:'center', ml:3}}>
+              <Typography variant="h5" sx={{fontWeight:theme.typography.fontWeightBold}}>
+                {headCell.label}
+              </Typography>
+              </Box>
               {orderBy === headCell.id ? (
-                <Box component="span" sx={visuallyHidden}>
+                <Box component="span">
                   {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
                 </Box>
               ) : null}
@@ -174,17 +168,20 @@ const EnhancedTableToolbar = (props) => {
   return (
     <Toolbar
       sx={{
-        pl: { sm: 2 },
-        pr: { xs: 1, sm: 1 },
+        // pl: { sm: 2 },
+        // pr: { xs: 1, sm: 1 },
         ...(numSelected > 0 && {
           bgcolor: (theme) =>
             alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
         }),
       }}
     >
+      <Box sx={{width:'100%', display:'flex',
+        flexDirection:'row',
+        justifyContent:'space-between',}}>
+      <Box sx={{ flex: '1 100%' }}>
       {numSelected > 0 ? (
         <Typography
-          sx={{ flex: '1 1 100%' }}
           color="inherit"
           variant="subtitle1"
           component="div"
@@ -193,7 +190,7 @@ const EnhancedTableToolbar = (props) => {
         </Typography>
       ) : (
         <Typography
-          sx={{ flex: '1 1 100%', fontWeight:theme.typography.fontWeightBold }}
+          sx={{fontWeight:theme.typography.fontWeightBold }}
           variant="h3"
           id="tableTitle"
           component="div"
@@ -201,7 +198,8 @@ const EnhancedTableToolbar = (props) => {
           Job List
         </Typography>
       )}
-
+      </Box>
+      <Box sx={{width:'100%', flex:'0 15%'}}>
       {numSelected > 0 ? (
         <Tooltip title="Delete">
           <IconButton>
@@ -210,13 +208,15 @@ const EnhancedTableToolbar = (props) => {
         </Tooltip>
       ) : (
         <Tooltip title="Filter list">
-          <Button variant="contained" color="info" sx={{width:'100%', maxWidth:'130px', backgroundColor:theme.palette.login.main}}>
+          <Button variant="contained" color="info" sx={{width:'100%', maxWidth:'230px', backgroundColor:theme.palette.login.main}}>
             <Typography variant="h5" sx={{fontWeight:theme.typography.fontWeightBold}}>
               Add new job
             </Typography>
           </Button>
         </Tooltip>
       )}
+      </Box>
+      </Box>
     </Toolbar>
   );
 };
@@ -288,12 +288,15 @@ export default function EnhancedTable() {
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Paper sx={{ width: '100%', mb: 2 , backgroundColor:theme.palette.background.default}}>
+    <Container sx={{ width: '100%',maxWidth:{xs:'100%'}, pl:{xs:0, lg:'24px'}, pr:{xs:0, lg:'24px'}, m:0, mt:4, }}>
+      <Paper sx={{ width: '100%', mb: 2 , backgroundColor:theme.palette.background.default, pt:2}}>
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer>
           <Table
-            sx={{ minWidth: 750 }}
+            sx={{ 
+              minWidth: 750,
+              width:'100%',
+            }}
             aria-labelledby="tableTitle"
             size={dense ? 'small' : 'medium'}
           >
@@ -323,8 +326,9 @@ export default function EnhancedTable() {
                       tabIndex={-1}
                       key={row.name}
                       selected={isItemSelected}
+                      align="center"
                     >
-                      <TableCell padding="checkbox">
+                      <TableCell padding="checkbox" align='center'>
                         <Checkbox
                           color="primary"
                           checked={isItemSelected}
@@ -338,6 +342,7 @@ export default function EnhancedTable() {
                         id={labelId}
                         scope="row"
                         padding="none"
+                        align='center'
                       >
                         <Typography variant='h5'>
                         {row.jobProfile}
@@ -346,29 +351,33 @@ export default function EnhancedTable() {
                       <TableCell align="center">
                         <Button variant='contained' color='info'
                         sx={{backgroundColor:theme.palette.login.main, width:'80%'}}>
-                        {row.application}
+                          <Typography variant='h5'>
+                            {row.application}
+                          </Typography>
                         </Button>
                         </TableCell>
                       <TableCell align="center">
+                        <Box sx={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
                         {(row.status) == 'Closed' ? (
-                          <Typography variant='h5' sx={{backgroundColor:theme.palette.error.bg, color:theme.palette.error.main, width:'50%', textAlign:'center', borderRadius:'4px'}} >
+                          <Typography variant='h5' sx={{backgroundColor:theme.palette.error.bg, color:theme.palette.error.main, width:'70px', textAlign:'center', borderRadius:'4px'}} >
                           {row.status}
                           </Typography>
                         ) : (
-                          <Typography variant='h5' sx={{backgroundColor:theme.palette.active.bg, color:theme.palette.active.main, width:'50%', textAlign:'center', borderRadius:'4px'}} >
+                          <Typography variant='h5' sx={{backgroundColor:theme.palette.active.bg, color:theme.palette.active.main, width:'70px', textAlign:'center', borderRadius:'4px'}} >
                           {row.status}
                           </Typography>
                         )}
+                        </Box>
                         </TableCell>
                       <TableCell align="center">
                         <Box>
-                          <IconButton sx={{backgroundColor:theme.palette.secondary.hover}}>
+                          <IconButton sx={{backgroundColor:theme.palette.secondary.hover, mr:.5}}>
                             <RemoveRedEyeIcon sx={{color:theme.palette.secondary.main}}/>
                           </IconButton>
-                          <IconButton sx={{backgroundColor:theme.palette.active.bg}}>
+                          <IconButton sx={{backgroundColor:theme.palette.active.bg,mr:0.5,ml:0.5}}>
                             <EditIcon sx={{color:theme.palette.active.main}}/>
                           </IconButton>
-                          <IconButton sx={{backgroundColor:theme.palette.error.bg}}>
+                          <IconButton sx={{backgroundColor:theme.palette.error.bg, ml:.5}}>
                             <CloseIcon sx={{color:theme.palette.error.main}}/>
                           </IconButton>
                         </Box>
@@ -402,6 +411,6 @@ export default function EnhancedTable() {
         control={<Switch checked={dense} onChange={handleChangeDense} />}
         label="Dense padding"
       />
-    </Box>
+    </Container>
   );
 }
