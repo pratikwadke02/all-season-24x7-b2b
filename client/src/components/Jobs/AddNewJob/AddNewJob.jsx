@@ -5,6 +5,7 @@ import React from "react";
 import PostfixDropdown from "../../utils/Dropdown/PostfixDropdown";
 import SelectComponent from "../../utils/Dropdown/SelectComponent";
 import ComboBoxComponent from "../../utils/ComboBox/ComboBoxComponent";
+import Date from "../../utils/Date/Date";
 
 const AddNewJob = () => {
   const SalaryTypes = [

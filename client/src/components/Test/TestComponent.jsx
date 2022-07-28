@@ -179,7 +179,7 @@ const EnhancedTableToolbar = (props) => {
       <Box sx={{width:'100%', display:'flex',
         flexDirection:'row',
         justifyContent:'space-between',}}>
-      <Box sx={{ flex: '1 100%' }}>
+      <Box flexGrow={1}>
       {numSelected > 0 ? (
         <Typography
           color="inherit"
@@ -199,7 +199,7 @@ const EnhancedTableToolbar = (props) => {
         </Typography>
       )}
       </Box>
-      <Box sx={{width:'100%', flex:'0 15%'}}>
+      <Box flexGrow={0}>
       {numSelected > 0 ? (
         <Tooltip title="Delete">
           <IconButton>
@@ -241,19 +241,19 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.name);
+      const newSelecteds = rows.map((n) => n.id);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
+  const handleClick = (event, id) => {
+    const selectedIndex = selected.indexOf(id);
     let newSelected = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, id);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -281,7 +281,7 @@ export default function EnhancedTable() {
     setDense(event.target.checked);
   };
 
-  const isSelected = (name) => selected.indexOf(name) !== -1;
+  const isSelected = (id) => selected.indexOf(id) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -314,13 +314,13 @@ export default function EnhancedTable() {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.name);
+                  const isItemSelected = isSelected(row.id);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.name)}
+                      // onClick={(event) => handleClick(event, row.name)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
@@ -330,6 +330,7 @@ export default function EnhancedTable() {
                     >
                       <TableCell padding="checkbox" align='center'>
                         <Checkbox
+                          onClick={(event) => handleClick(event, row.id)}
                           color="primary"
                           checked={isItemSelected}
                           inputProps={{
