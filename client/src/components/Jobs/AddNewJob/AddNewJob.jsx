@@ -107,13 +107,14 @@ const AddNewJob = () => {
           <Box sx={{ display: "flex", flexDirection: "column",width:'100%'}}>
             <PostfixDropdown items={SalaryTypes} />
             <Box sx={{ p: 1 }} />
-            <TextField
+            {/* <TextField
               type={"date"}
               label="Last Date to Apply"
               InputLabelProps={{
                 shrink: true,
               }}
-            />
+            /> */}
+            <Date label="Last Date to Apply" />
             <Box sx={{ p: 1 }} />
             <ComboBoxComponent data={cityData} label="City" />
           </Box>
