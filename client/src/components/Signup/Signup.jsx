@@ -13,6 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import GoogleIcon from "@mui/icons-material/Google";
 import TextfieldComponent from "../utils/Textfield/TextfieldComponent";
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 const Signup = () => {
   const [checked, setChecked] = React.useState(false);
@@ -156,10 +157,13 @@ const Signup = () => {
               color={theme.palette.text.primary}
               sx={{ display: "flex", alignItems: "center" }}
             >
-              <GoogleIcon
+              {/* <GoogleIcon
                 fontSize="large"
                 sx={{ color: theme.palette.text.primary, pr: 1 }}
-              />
+              /> */}
+              <Box sx={{pr:1}}>
+                <FcGoogle size={'1.85em'} />
+              </Box>
               Continue with Google
             </Typography>
           </Button>

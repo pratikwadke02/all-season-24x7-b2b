@@ -7,6 +7,7 @@ import GoogleIcon from "@mui/icons-material/Google";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PhoneComponent from "../utils/Phone/PhoneComponent";
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   return (
@@ -93,7 +94,7 @@ const Login = () => {
             >
               <EmailOutlinedIcon
                 fontSize="large"
-                sx={{ color: theme.palette.text.primary,pr: 1 }}
+                sx={{ color: theme.palette.login.main,pr: 1 }}
               />
               Continue with Email
             </Typography>
@@ -108,10 +109,13 @@ const Login = () => {
               color={theme.palette.text.primary}
               sx={{ display: "flex", alignItems: "center" }}
             >
-              <GoogleIcon
+              {/* <GoogleIcon
                 fontSize="large"
                 sx={{ color: theme.palette.text.primary, pr: 1 }}
-              />
+              /> */}
+              <Box sx={{pr:1}}>
+                <FcGoogle size={'1.85em'} />
+              </Box>
               Continue with Google
             </Typography>
           </Button>

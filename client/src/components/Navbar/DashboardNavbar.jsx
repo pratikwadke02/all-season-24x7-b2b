@@ -51,7 +51,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-const drawerWidth = 380;   // width of the drawer 280
+const drawerWidth = 340;   // width of the drawer 280
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({

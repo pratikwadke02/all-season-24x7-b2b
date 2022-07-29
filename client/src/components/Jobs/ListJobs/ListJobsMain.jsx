@@ -362,11 +362,11 @@ export default function EnhancedTable() {
                       <TableCell align="center">
                         <Box sx={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
                         {(row.status) == 'Closed' ? (
-                          <Typography variant='h5' sx={{backgroundColor:theme.palette.error.bg, color:theme.palette.error.main, width:'70px', textAlign:'center', borderRadius:'4px'}} >
+                          <Typography variant='h5' sx={{backgroundColor:theme.palette.error.bg,p:0.3, color:theme.palette.error.main, width:'70px', textAlign:'center', borderRadius:'35px'}} >
                           {row.status}
                           </Typography>
                         ) : (
-                          <Typography variant='h5' sx={{backgroundColor:theme.palette.active.bg, color:theme.palette.active.main, width:'70px', textAlign:'center', borderRadius:'4px'}} >
+                          <Typography variant='h5' sx={{backgroundColor:theme.palette.active.bg, p:.30, color:theme.palette.active.main, width:'70px', textAlign:'center', borderRadius:'35px'}} >
                           {row.status}
                           </Typography>
                         )}
@@ -374,14 +374,14 @@ export default function EnhancedTable() {
                         </TableCell>
                       <TableCell align="center">
                         <Box>
-                          <IconButton sx={{backgroundColor:theme.palette.secondary.hover, mr:.5}}>
-                            <RemoveRedEyeIcon sx={{color:theme.palette.secondary.main}}/>
+                          <IconButton sx={{backgroundColor:theme.palette.secondary.hover, mr:1}}>
+                            <RemoveRedEyeIcon fontSize='small' sx={{color:theme.palette.secondary.main}}/>
                           </IconButton>
-                          <IconButton sx={{backgroundColor:theme.palette.active.bg,mr:0.5,ml:0.5}}>
-                            <EditIcon sx={{color:theme.palette.active.main}}/>
+                          <IconButton sx={{backgroundColor:theme.palette.active.bg,mr:1,ml:1}}>
+                            <EditIcon fontSize='small' sx={{color:theme.palette.active.main}}/>
                           </IconButton>
-                          <IconButton sx={{backgroundColor:theme.palette.error.bg, ml:.5}}>
-                            <CloseIcon sx={{color:theme.palette.error.main}}/>
+                          <IconButton sx={{backgroundColor:theme.palette.error.bg, ml:1}}>
+                            <CloseIcon fontSize='small' sx={{color:theme.palette.error.main}}/>
                           </IconButton>
                         </Box>
                       </TableCell>
