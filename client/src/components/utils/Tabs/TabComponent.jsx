@@ -52,13 +52,16 @@ export default function TabComponent(props) {
     <Box sx={{
       width: "100%",
     }}>
-      <Box sx={{ borderBottom:1, borderColor:'divider', mb: 2}}>
+      <Box sx={{maxWidth:{xs:'80vw',sm:'90vw',  lg:'100%'}, borderBottom:1, borderColor:'divider', mb: 2}}>
         <Tabs
           textColor="secondary"
           indicatorColor="secondary"
           value={value}
           onChange={handleChange}
           aria-label="simple tabs example"
+          // allowScrollButtonsMobile
+          scrollButtons="auto"
+          variant="scrollable"
           >
           {data.map((item, index) => (
             <Tab 

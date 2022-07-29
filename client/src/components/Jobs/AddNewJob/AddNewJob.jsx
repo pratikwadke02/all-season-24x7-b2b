@@ -76,8 +76,21 @@ const AddNewJob = () => {
 
   return (
     <>
-      <Container sx={{ display: "flex", flexDirection: "column", maxWidth: {xs:'100%', lg:'inherit'},pb:2 }}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Container
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          maxWidth: { xs: "100%", lg: "inherit" },
+          pb: 2,
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            justifyContent: "space-between",
+          }}
+        >
           <TextField type={"text"} label="Job Title" sx={{ width: "100%" }} />
           <Box sx={{ p: 1 }} />
           <TextField
@@ -96,26 +109,21 @@ const AddNewJob = () => {
             sx={{ width: "100%" }}
           />
         </Box>
-        <Box sx={{ display: "flex", flexDirection: "row", width: "100%" }}>
-          <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
-            <TextField type={"text"} label="Required Skills" />
+        <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
+          <Box sx={{ display: "flex", flexDirection:{xs:'column', sm:'row'}, width: "100%" }}>
+            <TextField type={"text"} label="Required Skills" sx={{width:'100%'}} />
             <Box sx={{ p: 1 }} />
-            <SelectComponent items={contractTypes} label="Contract Type" />
+            <PostfixDropdown items={SalaryTypes} />
+          </Box>
+          <Box sx={{p:1}} />
+          <Box sx={{ display: "flex", flexDirection:{xs:'column', sm:'row'}, width: "100%" }}>
+            <SelectComponent items={contractTypes} label="Contract Type"/>
             <Box sx={{ p: 1 }} />
-            <ComboBoxComponent data={stateData} label="State" />
+            <Date label="Last Date to Apply" />
           </Box>
           <Box sx={{ p: 1 }} />
-          <Box sx={{ display: "flex", flexDirection: "column",width:'100%'}}>
-            <PostfixDropdown items={SalaryTypes} />
-            <Box sx={{ p: 1 }} />
-            {/* <TextField
-              type={"date"}
-              label="Last Date to Apply"
-              InputLabelProps={{
-                shrink: true,
-              }}
-            /> */}
-            <Date label="Last Date to Apply" />
+          <Box sx={{ display: "flex", flexDirection:{xs:'column', sm:'row'}, width: "100%" }}>
+            <ComboBoxComponent data={stateData} label="State" />
             <Box sx={{ p: 1 }} />
             <ComboBoxComponent data={cityData} label="City" />
           </Box>
@@ -133,7 +141,12 @@ const AddNewJob = () => {
               backgroundColor: theme.palette.secondary.main,
             }}
           >
-            <Typography variant="h5" sx={{fontWeight:theme.typography.fontWeightBold}}>SAVE CHANGES</Typography>
+            <Typography
+              variant="h5"
+              sx={{ fontWeight: theme.typography.fontWeightBold }}
+            >
+              SAVE CHANGES
+            </Typography>
           </Button>
           <Button
             color="inherit"
@@ -144,7 +157,12 @@ const AddNewJob = () => {
               border: "1px solid lightgrey",
             }}
           >
-            <Typography variant="h5" sx={{fontWeight:theme.typography.fontWeightBold}}>CANCEL</Typography>
+            <Typography
+              variant="h5"
+              sx={{ fontWeight: theme.typography.fontWeightBold }}
+            >
+              CANCEL
+            </Typography>
           </Button>
         </Box>
       </Container>

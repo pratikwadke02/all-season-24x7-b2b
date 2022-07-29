@@ -21,6 +21,7 @@ import ProfileMenu from '../Menu/ProfileMenu';
 import Badge from '@mui/material/Badge';
 import {theme} from '../../theme';
 import Jobs from '../Jobs/Jobs';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -140,10 +141,10 @@ export default function PersistentDrawerLeft() {
         <Toolbar>
           <Box sx={{display:'flex', minWidth:'235px', justifyContent:'space-between'}}>
           <Box sx={{display:'flex', alignItems:'center'}}>
-          <img src={images.dashboardLogo} alt="dashboard-logo"/>
-                <Typography variant='h2' fontWeight={800} paddingLeft={1}sx={{color: theme.palette.text.primary}}>
+          <img src={images.HomeLogo} alt="dashboard-logo"/>
+                {/* <Typography variant='h2' fontWeight={800} paddingLeft={1}sx={{color: theme.palette.text.primary}}>
                   MATERIO
-          </Typography>
+          </Typography> */}
           </Box>
           <IconButton
             color="inherit"
@@ -151,15 +152,15 @@ export default function PersistentDrawerLeft() {
             onClick={handleDrawerOpen}
             edge="start"  //...(open && { display: 'none' })
           >
-            <RadioButtonCheckedIcon />
+            <MenuIcon fontSize='large' sx={{backgroundColor:theme.palette.login.main, color:theme.palette.background.default, borderRadius:'4px'}} />
           </IconButton>
           </Box>
-          <Box sx={{ flexGrow: 1, display: "flex", ml:4}}>
+          <Box sx={{ flexGrow: 1, display:'flex', ml:4}}>
               <IconButton>
                 <SearchIcon fontSize="large" />
               </IconButton>
             </Box>
-            <Box sx={{ flexGrow: 0, display: {xs:'none', sm:'flex'} }}>
+            <Box sx={{ flexGrow: 0, display:'flex' }}>
             <Tooltip title="Open Notifications" sx={{mr:2}}>
             <IconButton onClick={handleOpenNotificationsMenu}>
               <NotificationsNoneRoundedIcon fontSize="large" sx={{color:theme.palette.text.primary }}/>
@@ -248,8 +249,8 @@ export default function PersistentDrawerLeft() {
       </Drawer>
       <Main open={open} sx={{maxWidth:'1300px'}}>
         <DrawerHeader />
-        {/* <Analytics /> */}
-        <Jobs />
+        <Analytics />
+        {/* <Jobs /> */}
       </Main>
     </Box>
   );

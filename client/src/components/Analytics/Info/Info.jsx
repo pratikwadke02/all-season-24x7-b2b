@@ -46,7 +46,7 @@ const Info = () => {
         <Box sx={{ display: "flex", width:'100%' }}>
         <MultilineTextfield label='Bio' />
         </Box>
-        <Box sx={{ display: "flex", flexDirection: "row", mt: 2, mb: 2 }}>
+        <Box sx={{ display: "flex", flexDirection: {xs:'column', sm:"row"}, mt: 2, mb: 2 }}>
           <Box
             sx={{
               display: "flex",
@@ -69,7 +69,7 @@ const Info = () => {
               flexDirection: "column",
               mt: 2,
               mb: 1,
-              ml: 2,
+              ml: {xs:0, sm:2},
               width: "100%",
             }}
           >
@@ -112,13 +112,13 @@ const Info = () => {
             </FormControl>
           </Box>
         </Box>
-        <Box sx={{ mt: 1 }}>
+        <Box sx={{}}>
           <Button
             variant="contained"
             color="info"
             sx={{
               width: "100%",
-              maxWidth: "200px",
+              maxWidth: "150px",
               backgroundColor: theme.palette.secondary.main,
             }}
           >

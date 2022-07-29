@@ -32,7 +32,7 @@ const SelectComponent = (props) => {
 
   return (
     <>
-    <Box>
+    <Box sx={{width:'100%'}}>
     <FormControl sx={{width:'100%'}}>
         <InputLabel id='select-label' color='primary'>{label}</InputLabel>
             <Select

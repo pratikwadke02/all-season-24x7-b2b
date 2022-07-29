@@ -33,13 +33,13 @@ const Notification = () => {
         <Box sx={{ p: 2 }}>
           <SwitchComponent options={switchOptions} />
         </Box>
-        <Box sx={{ m: 2 }}>
+        <Box sx={{ m: 2, display:'flex' }}>
           <Button
             color="info"
             variant="contained"
             sx={{
               width: "100%",
-              maxWidth: "200px",
+              maxWidth: "150px",
               backgroundColor: theme.palette.secondary.main,
             }}
           >

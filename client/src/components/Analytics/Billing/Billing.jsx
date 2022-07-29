@@ -18,8 +18,8 @@ import { theme } from "../../../theme";
 const Billing = () => {
   return (
     <>
-      <Container sx={{ display: "flex", flexDirection: "row", maxWidth:{xs:'100%', lg:'inherit'} }}>
-        <Box sx={{ p: 2, width: "50vw" }} flex={1}>
+      <Container sx={{ display: "flex", flexDirection: {xs:'column', lg:'row'}, maxWidth:{xs:'100%', lg:'inherit'}, alignItems:'center' }}>
+        <Box sx={{ p: 2, width: "100%" }} flex={1}>
           <Typography variant="h3" sx={{ color: theme.palette.text.primary, fontWeight: theme.typography.fontWeightBold }}>
             Payment Method
           </Typography>
@@ -37,14 +37,14 @@ const Billing = () => {
               />
             </RadioGroup>
           </FormControl>
-          <Box sx={{ mt: 2, mb: 2, display:'flex' }}>
+          <Box sx={{ mt: 2, mb: 2, display:'flex', flexDirection: {xs: 'column', sm:'row'} }}>
             <TextfieldComponent label="Name" />
             <Box sx={{ p: 1 }} />
             <TextfieldComponent label="Card" type="string" />
           </Box>
           {/* <Box sx={{ mt: 2, mb: 1 }}>
           </Box> */}
-          <Box sx={{ display: "flex", mt: 2, mb: 2 }}>
+          <Box sx={{ display: "flex", mt: 2, mb: 2, flexDirection: {xs: 'column', sm:'row'} }}>
             <TextfieldComponent label="Expiry Date" type="string" />
             <Box sx={{ p: 1 }} />
             <TextfieldComponent label="CVV Code" type="password" />
@@ -55,7 +55,7 @@ const Billing = () => {
               color="info"
               sx={{
                 width: "100%",
-                maxWidth: "200px",
+                maxWidth: "150px",
                 backgroundColor: theme.palette.secondary.main,
               }}
             >
