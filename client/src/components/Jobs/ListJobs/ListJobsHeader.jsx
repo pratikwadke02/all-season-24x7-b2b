@@ -35,7 +35,7 @@ const ListJobsHeader = () => {
             </Typography>
           </Box>
           <Box
-            sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+            sx={{ display: "flex", flexDirection: {xs:'column', sm:'row'}, alignItems: "center" }}
           >
             <Box sx={{width:'100%'}}>
             <SelectComponent label="Job Profile" items={jobProfileItems} />

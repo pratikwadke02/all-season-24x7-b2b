@@ -161,14 +161,14 @@ export default function PersistentDrawerLeft() {
               </IconButton>
             </Box>
             <Box sx={{ flexGrow: 0, display:'flex' }}>
-            <Tooltip title="Open Notifications" sx={{mr:2}}>
+            <Tooltip title="Open Notifications" sx={{mr:{xs:0, sm:2}}}>
             <IconButton onClick={handleOpenNotificationsMenu}>
               <NotificationsNoneRoundedIcon fontSize="large" sx={{color:theme.palette.text.primary }}/>
             </IconButton>
             </Tooltip>
             <Menu
             PaperProps={{ sx: { width: "100%" , maxWidth:'380px' } }}
-            sx={{ mt: "45px", width:'380px'}}
+            sx={{mr:1, mt: "45px", width:{xs:'350px', sm:'380px'}}}
             id="notification-appbar"
             anchorEl={anchorElNotifications}
             anchorOrigin={{
@@ -226,8 +226,8 @@ export default function PersistentDrawerLeft() {
           sx : {
             p:1,
             textAlign: "center",
-            backgroundColor: "#fff",
-            border: 'none'
+            backgroundColor: theme.palette.background.default,
+            border: 'none',
             }
         }}
         sx={{

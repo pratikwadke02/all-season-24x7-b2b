@@ -8,7 +8,9 @@ import Analytics from '../../components/Analytics/Analytics'
 const Dashboard = () => {
   return (
     <>
-    <Box bgcolor={'#f4f5fa'} sx={{height: '100vh',}}>
+    <Box 
+    bgcolor={'#f4f5fa'} sx={{pb:{xs:7 , sm:0}, height:{xs:'100%', sm:'100vh'}}}
+    >
         <DashboardNavbar />
     </Box>
     </>
