@@ -17,27 +17,27 @@ const Analytics = () => {
   const data = [
     {
       name: "Account",
-      icon: <SearchIcon fontSize="large"/>,
+      icon: <SearchIcon fontSize="medium"/>,
       component: <Account />,
     },
     {
       name: "Security",
-      icon: <LockOpenOutlinedIcon fontSize="large"/>,
+      icon: <LockOpenOutlinedIcon fontSize="medium"/>,
       component: <Security />,
     },
     {
       name: "Info",
-      icon: <InfoOutlinedIcon fontSize="large"/>,
+      icon: <InfoOutlinedIcon fontSize="medium"/>,
       component: <Info />,
     },
     {
       name: "Billing",
-      icon: <BookmarkBorderOutlinedIcon fontSize="large"/>,
+      icon: <BookmarkBorderOutlinedIcon fontSize="medium"/>,
       component: <Billing />,
     },
     {
       name: "Notification",
-      icon: <NotificationsNoneOutlinedIcon fontSize="large"/>,
+      icon: <NotificationsNoneOutlinedIcon fontSize="medium"/>,
       component: <Notification />,
     },
   ];

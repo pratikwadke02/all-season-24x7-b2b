@@ -1,31 +1,32 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import { alpha } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-import TableSortLabel from '@mui/material/TableSortLabel';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
-import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
-import DeleteIcon from '@mui/icons-material/Delete';
-import FilterListIcon from '@mui/icons-material/FilterList';
-import {Button, Container} from '@mui/material';
-import { visuallyHidden } from '@mui/utils';
-import { theme } from '../../theme';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import EditIcon from '@mui/icons-material/Edit';
-import CloseIcon from '@mui/icons-material/Close';
+import * as React from "react";
+import PropTypes from "prop-types";
+import { alpha } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TablePagination from "@mui/material/TablePagination";
+import TableRow from "@mui/material/TableRow";
+import TableSortLabel from "@mui/material/TableSortLabel";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
+import Checkbox from "@mui/material/Checkbox";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
+import DeleteIcon from "@mui/icons-material/Delete";
+import FilterListIcon from "@mui/icons-material/FilterList";
+import { Button, Container } from "@mui/material";
+import { visuallyHidden } from "@mui/utils";
+import { theme } from "../../theme";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import EditIcon from "@mui/icons-material/Edit";
+import CloseIcon from "@mui/icons-material/Close";
+import TestMenu from "./TestMenu";
 
 function createData(id, jobProfile, application, status, action) {
   return {
@@ -37,11 +38,41 @@ function createData(id, jobProfile, application, status, action) {
   };
 }
 
+function createResponsiveData(id, jobProfile, details) {
+  return {
+    id,
+    jobProfile,
+    details,
+  };
+}
+
 const rows = [
-  createData(1, 'Job Profile 1', 'View Applicants (10)', 'Closed', 'icons'),
-  createData(2, 'Job Profile 2', 'View Applicants (10)', 'Active', 'icons'),
-  createData(3, 'Job Profile 3', 'View Applicants (10)', 'Closed', 'icons'),
-  createData(4, 'Job Profile 4', 'View Applicants (10)', 'Active', 'icons'),
+  createData(1, "Job Profile 1", "View Applicants (10)", "Closed", "icons"),
+  createData(2, "Job Profile 2", "View Applicants (10)", "Active", "icons"),
+  createData(3, "Job Profile 3", "View Applicants (10)", "Closed", "icons"),
+  createData(4, "Job Profile 4", "View Applicants (10)", "Active", "icons"),
+];
+
+const responsiveRows = [
+  createResponsiveData(1, "Job Profile 1", "menu"),
+  createResponsiveData(2, "Job Profile 2", "menu"),
+  createResponsiveData(3, "Job Profile 3", "menu"),
+  createResponsiveData(4, "Job Profile 4", "menu"),
+];
+
+const menu = [
+  {
+    id: 1,
+    name: "View Applicants",
+  },
+  {
+    id: 2,
+    name: "Check Status",
+  },
+  {
+    id: 3,
+    name: "icons",
+  },
 ];
 
 console.log(rows);
@@ -57,7 +88,7 @@ function descendingComparator(a, b, orderBy) {
 }
 
 function getComparator(order, orderBy) {
-  return order === 'desc'
+  return order === "desc"
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
@@ -78,34 +109,55 @@ function stableSort(array, comparator) {
 
 const headCells = [
   {
-    id: 'jobProfile',
+    id: "jobProfile",
     numeric: false,
     disablePadding: true,
-    label: 'JOB PROFILE',
+    label: "JOB PROFILE",
   },
   {
-    id: 'application',
+    id: "application",
     numeric: false,
     disablePadding: false,
-    label: 'APPLICATION',
+    label: "APPLICATION",
   },
   {
-    id: 'status',
+    id: "status",
     numeric: false,
     disablePadding: false,
-    label: 'STATUS',
+    label: "STATUS",
   },
   {
-    id: 'action',
+    id: "action",
     numeric: false,
     disablePadding: false,
-    label: 'ACTION',
+    label: "ACTION",
+  },
+];
+
+const ResponsiveHeadCells = [
+  {
+    id: "jobProfile",
+    numeric: false,
+    disablePadding: true,
+    label: "JOB PROFILE",
+  },
+  {
+    id: "details",
+    numeric: false,
+    disablePadding: false,
+    label: "DETAILS",
   },
 ];
 
 function EnhancedTableHead(props) {
-  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
-    props;
+  const {
+    onSelectAllClick,
+    order,
+    orderBy,
+    numSelected,
+    rowCount,
+    onRequestSort,
+  } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
@@ -113,14 +165,14 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox" align='center'>
+        <TableCell padding="checkbox" align="center">
           <Checkbox
             color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
             inputProps={{
-              'aria-label': 'select all desserts',
+              "aria-label": "select all desserts",
             }}
           />
         </TableCell>
@@ -129,22 +181,32 @@ function EnhancedTableHead(props) {
             key={headCell.id}
             // align={headCell.numeric ? 'right' : 'left'}
             align="center"
-            padding={headCell.disablePadding ? 'none' : 'normal'}
+            padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : 'asc'}
+              direction={orderBy === headCell.id ? order : "asc"}
               onClick={createSortHandler(headCell.id)}
             >
-              <Box sx={{display:'row', flexDirection:'row', justifyContent:'center', ml:3}}>
-              <Typography variant="h5" sx={{fontWeight:theme.typography.fontWeightBold}}>
-                {headCell.label}
-              </Typography>
+              <Box
+                sx={{
+                  display: "row",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  ml: 3,
+                }}
+              >
+                <Typography
+                  variant="h5"
+                  sx={{ fontWeight: theme.typography.fontWeightBold }}
+                >
+                  {headCell.label}
+                </Typography>
               </Box>
               {orderBy === headCell.id ? (
                 <Box component="span">
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
+                  {order === "desc" ? "sorted descending" : "sorted ascending"}
                 </Box>
               ) : null}
             </TableSortLabel>
@@ -159,9 +221,77 @@ EnhancedTableHead.propTypes = {
   numSelected: PropTypes.number.isRequired,
   onRequestSort: PropTypes.func.isRequired,
   onSelectAllClick: PropTypes.func.isRequired,
-  order: PropTypes.oneOf(['asc', 'desc']).isRequired,
+  order: PropTypes.oneOf(["asc", "desc"]).isRequired,
   orderBy: PropTypes.string.isRequired,
   rowCount: PropTypes.number.isRequired,
+};
+
+const ResponsivetableHead = (props) => {
+  const {
+    onSelectAllClick,
+    order,
+    orderBy,
+    numSelected,
+    rowCount,
+    onRequestSort,
+  } = props;
+  const createSortHandler = (property) => (event) => {
+    onRequestSort(event, property);
+  };
+
+  return (
+    <TableHead>
+      <TableRow>
+        <TableCell padding="checkbox" align="center">
+          <Checkbox
+            color="primary"
+            indeterminate={numSelected > 0 && numSelected < rowCount}
+            checked={rowCount > 0 && numSelected === rowCount}
+            onChange={onSelectAllClick}
+            inputProps={{
+              "aria-label": "select all desserts",
+            }}
+          />
+        </TableCell>
+        {ResponsiveHeadCells.map((headCell) => (
+          <TableCell
+            key={headCell.id}
+            // align={headCell.numeric ? 'right' : 'left'}
+            align="center"
+            padding={headCell.disablePadding ? "none" : "normal"}
+            sortDirection={orderBy === headCell.id ? order : false}
+          >
+            <TableSortLabel
+              active={orderBy === headCell.id}
+              direction={orderBy === headCell.id ? order : "asc"}
+              onClick={createSortHandler(headCell.id)}
+            >
+              <Box
+                sx={{
+                  display: "row",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  ml: 3,
+                }}
+              >
+                <Typography
+                  variant="h5"
+                  sx={{ fontWeight: theme.typography.fontWeightBold }}
+                >
+                  {headCell.label}
+                </Typography>
+              </Box>
+              {orderBy === headCell.id ? (
+                <Box component="span">
+                  {order === "desc" ? "sorted descending" : "sorted ascending"}
+                </Box>
+              ) : null}
+            </TableSortLabel>
+          </TableCell>
+        ))}
+      </TableRow>
+    </TableHead>
+  );
 };
 
 const EnhancedTableToolbar = (props) => {
@@ -174,50 +304,65 @@ const EnhancedTableToolbar = (props) => {
         // pr: { xs: 1, sm: 1 },
         ...(numSelected > 0 && {
           bgcolor: (theme) =>
-            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
+            alpha(
+              theme.palette.primary.main,
+              theme.palette.action.activatedOpacity
+            ),
         }),
       }}
     >
-      <Box sx={{width:'100%', display:'flex',
-        flexDirection:'row',
-        justifyContent:'space-between',}}>
-      <Box flexGrow={1}>
-      {numSelected > 0 ? (
-        <Typography
-          color="inherit"
-          variant="subtitle1"
-          component="div"
-        >
-          {numSelected} selected
-        </Typography>
-      ) : (
-        <Typography
-          sx={{fontWeight:theme.typography.fontWeightBold }}
-          variant="h3"
-          id="tableTitle"
-          component="div"
-        >
-          Job List
-        </Typography>
-      )}
-      </Box>
-      <Box flexGrow={0}>
-      {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton>
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <Button variant="contained" color="info" sx={{width:'100%', maxWidth:'230px', backgroundColor:theme.palette.login.main}}>
-            <Typography variant="h5" sx={{fontWeight:theme.typography.fontWeightBold}}>
-              Add new job
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <Box flexGrow={1}>
+          {numSelected > 0 ? (
+            <Typography color="inherit" variant="subtitle1" component="div">
+              {numSelected} selected
             </Typography>
-          </Button>
-        </Tooltip>
-      )}
-      </Box>
+          ) : (
+            <Typography
+              sx={{ fontWeight: theme.typography.fontWeightBold }}
+              variant="h3"
+              id="tableTitle"
+              component="div"
+            >
+              Job List
+            </Typography>
+          )}
+        </Box>
+        <Box flexGrow={0}>
+          {numSelected > 0 ? (
+            <Tooltip title="Delete">
+              <IconButton>
+                <DeleteIcon />
+              </IconButton>
+            </Tooltip>
+          ) : (
+            <Tooltip title="Filter list">
+              <Button
+                variant="contained"
+                color="info"
+                sx={{
+                  width: "100%",
+                  maxWidth: "230px",
+                  backgroundColor: theme.palette.login.main,
+                }}
+              >
+                <Typography
+                  variant="h5"
+                  sx={{ fontWeight: theme.typography.fontWeightBold }}
+                >
+                  Add new job
+                </Typography>
+              </Button>
+            </Tooltip>
+          )}
+        </Box>
       </Box>
     </Toolbar>
   );
@@ -228,16 +373,16 @@ EnhancedTableToolbar.propTypes = {
 };
 
 export default function EnhancedTable() {
-  const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('calories');
+  const [order, setOrder] = React.useState("asc");
+  const [orderBy, setOrderBy] = React.useState("calories");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleRequestSort = (event, property) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
+    const isAsc = orderBy === property && order === "asc";
+    setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
   };
 
@@ -263,7 +408,7 @@ export default function EnhancedTable() {
     } else if (selectedIndex > 0) {
       newSelected = newSelected.concat(
         selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1),
+        selected.slice(selectedIndex + 1)
       );
     }
 
@@ -289,116 +434,321 @@ export default function EnhancedTable() {
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
-  return (
-    <Container sx={{ width: '100%',maxWidth:{xs:'100%'}, pl:{xs:0, lg:'24px'}, pr:{xs:0, lg:'24px'}, m:0, mt:4, }}>
-      <Paper sx={{ width: '100%', mb: 2 , backgroundColor:theme.palette.background.default, pt:2}}>
-        <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer>
-          <Table
-            sx={{ 
-              minWidth: 750,
-              width:'100%',
-            }}
-            aria-labelledby="tableTitle"
-            size={dense ? 'small' : 'medium'}
-          >
-            <EnhancedTableHead
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-              onSelectAllClick={handleSelectAllClick}
-              onRequestSort={handleRequestSort}
-              rowCount={rows.length}
-            />
-            <TableBody>
-              {/* if you don't need to support IE11, you can replace the `stableSort` call with:
-                 rows.slice().sort(getComparator(order, orderBy)) */}
-              {stableSort(rows, getComparator(order, orderBy))
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
-                  const isItemSelected = isSelected(row.id);
-                  const labelId = `enhanced-table-checkbox-${index}`;
 
-                  return (
-                    <TableRow
-                      hover
-                      // onClick={(event) => handleClick(event, row.name)}
-                      role="checkbox"
-                      aria-checked={isItemSelected}
-                      tabIndex={-1}
-                      key={row.name}
-                      selected={isItemSelected}
-                      align="center"
-                    >
-                      <TableCell padding="checkbox" align='center'>
-                        <Checkbox
-                          onClick={(event) => handleClick(event, row.id)}
-                          color="primary"
-                          checked={isItemSelected}
-                          inputProps={{
-                            'aria-labelledby': labelId,
-                          }}
-                        />
-                      </TableCell>
-                      <TableCell
-                        component="th"
-                        id={labelId}
-                        scope="row"
-                        padding="none"
-                        align='center'
+  //menu
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
+
+  const handleClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  function handleListKeyDown(event) {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      setOpen(false);
+    } else if (event.key === 'Escape') {
+      setOpen(false);
+    }
+  }
+
+  // return focus to the button when we transitioned from !open -> open
+  const prevOpen = React.useRef(open);
+  React.useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current.focus();
+    }
+
+    prevOpen.current = open;
+  }, [open]);
+
+  return (
+    <Container
+      sx={{
+        width: "100%",
+        maxWidth: { xs: "100%" },
+        pl: { xs: 0, lg: "24px" },
+        pr: { xs: 0, lg: "24px" },
+        m: 0,
+        mt: 4,
+      }}
+    >
+      <Paper
+        sx={{
+          width: "100%",
+          mb: 2,
+          backgroundColor: theme.palette.background.default,
+          pt: 2,
+        }}
+      >
+        <EnhancedTableToolbar numSelected={selected.length} />
+        <TableContainer
+          sx={{
+            overflowX: "auto",
+          }}
+        >
+          <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+            <Table
+              sx={{
+                minWidth: 750,
+                width: "100%",
+                overflowX: "auto",
+                whiteSpace: "nowrap",
+                textAlign: "center",
+              }}
+              aria-labelledby="tableTitle"
+              size={dense ? "small" : "medium"}
+            >
+              <EnhancedTableHead
+                numSelected={selected.length}
+                order={order}
+                orderBy={orderBy}
+                onSelectAllClick={handleSelectAllClick}
+                onRequestSort={handleRequestSort}
+                rowCount={rows.length}
+              />
+              <TableBody>
+                {/* if you don't need to support IE11, you can replace the `stableSort` call with:
+                 rows.slice().sort(getComparator(order, orderBy)) */}
+                {stableSort(rows, getComparator(order, orderBy))
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => {
+                    const isItemSelected = isSelected(row.id);
+                    const labelId = `enhanced-table-checkbox-${index}`;
+
+                    return (
+                      <TableRow
+                        hover
+                        // onClick={(event) => handleClick(event, row.name)}
+                        role="checkbox"
+                        aria-checked={isItemSelected}
+                        tabIndex={-1}
+                        key={row.name}
+                        selected={isItemSelected}
+                        align="center"
                       >
-                        <Typography variant='h5'>
-                        {row.jobProfile}
-                        </Typography>
-                      </TableCell>
-                      <TableCell align="center">
-                        <Button variant='contained' color='info'
-                        sx={{backgroundColor:theme.palette.login.main, width:'80%'}}>
-                          <Typography variant='h5'>
-                            {row.application}
-                          </Typography>
-                        </Button>
+                        <TableCell padding="checkbox" align="center">
+                          <Checkbox
+                            onClick={(event) => handleClick(event, row.id)}
+                            color="primary"
+                            checked={isItemSelected}
+                            inputProps={{
+                              "aria-labelledby": labelId,
+                            }}
+                          />
                         </TableCell>
-                      <TableCell align="center">
-                        <Box sx={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
-                        {(row.status) == 'Closed' ? (
-                          <Typography variant='h5' sx={{backgroundColor:theme.palette.error.bg,p:0.3, color:theme.palette.error.main, width:'70px', textAlign:'center', borderRadius:'35px'}} >
-                          {row.status}
-                          </Typography>
-                        ) : (
-                          <Typography variant='h5' sx={{backgroundColor:theme.palette.active.bg, p:.30, color:theme.palette.active.main, width:'70px', textAlign:'center', borderRadius:'35px'}} >
-                          {row.status}
-                          </Typography>
-                        )}
-                        </Box>
+                        <TableCell
+                          component="th"
+                          id={labelId}
+                          scope="row"
+                          padding="none"
+                          align="center"
+                        >
+                          <Typography variant="h5">{row.jobProfile}</Typography>
                         </TableCell>
-                      <TableCell align="center">
-                        <Box>
-                          <IconButton sx={{backgroundColor:theme.palette.secondary.hover, mr:1}}>
-                            <RemoveRedEyeIcon fontSize='small' sx={{color:theme.palette.secondary.main}}/>
-                          </IconButton>
-                          <IconButton sx={{backgroundColor:theme.palette.active.bg,mr:1,ml:1}}>
-                            <EditIcon fontSize='small' sx={{color:theme.palette.active.main}}/>
-                          </IconButton>
-                          <IconButton sx={{backgroundColor:theme.palette.error.bg, ml:1}}>
-                            <CloseIcon fontSize='small' sx={{color:theme.palette.error.main}}/>
-                          </IconButton>
-                        </Box>
-                      </TableCell>
-                    </TableRow>
-                  );
-                })}
-              {emptyRows > 0 && (
-                <TableRow
-                  style={{
-                    height: (dense ? 33 : 53) * emptyRows,
-                  }}
-                >
-                  <TableCell colSpan={6} />
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
+                        <TableCell align="center">
+                          <Button
+                            variant="contained"
+                            color="info"
+                            sx={{
+                              backgroundColor: theme.palette.login.main,
+                              width: "190px",
+                            }}
+                          >
+                            <Typography variant="h5">
+                              {row.application}
+                            </Typography>
+                          </Button>
+                        </TableCell>
+                        <TableCell align="center">
+                          <Box
+                            sx={{
+                              display: "flex",
+                              flexDirection: "row",
+                              justifyContent: "center",
+                            }}
+                          >
+                            {row.status == "Closed" ? (
+                              <Typography
+                                variant="h5"
+                                sx={{
+                                  backgroundColor: theme.palette.error.bg,
+                                  p: 0.3,
+                                  color: theme.palette.error.main,
+                                  width: "70px",
+                                  textAlign: "center",
+                                  borderRadius: "35px",
+                                }}
+                              >
+                                {row.status}
+                              </Typography>
+                            ) : (
+                              <Typography
+                                variant="h5"
+                                sx={{
+                                  backgroundColor: theme.palette.active.bg,
+                                  p: 0.3,
+                                  color: theme.palette.active.main,
+                                  width: "70px",
+                                  textAlign: "center",
+                                  borderRadius: "35px",
+                                }}
+                              >
+                                {row.status}
+                              </Typography>
+                            )}
+                          </Box>
+                        </TableCell>
+                        <TableCell align="center">
+                          <Box>
+                            <IconButton
+                              sx={{
+                                backgroundColor: theme.palette.secondary.hover,
+                                mr: 1,
+                              }}
+                            >
+                              <RemoveRedEyeIcon
+                                fontSize="small"
+                                sx={{ color: theme.palette.secondary.main }}
+                              />
+                            </IconButton>
+                            <IconButton
+                              sx={{
+                                backgroundColor: theme.palette.active.bg,
+                                mr: 1,
+                                ml: 1,
+                              }}
+                            >
+                              <EditIcon
+                                fontSize="small"
+                                sx={{ color: theme.palette.active.main }}
+                              />
+                            </IconButton>
+                            <IconButton
+                              sx={{
+                                backgroundColor: theme.palette.error.bg,
+                                ml: 1,
+                              }}
+                            >
+                              <CloseIcon
+                                fontSize="small"
+                                sx={{ color: theme.palette.error.main }}
+                              />
+                            </IconButton>
+                          </Box>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                {emptyRows > 0 && (
+                  <TableRow
+                    style={{
+                      height: (dense ? 33 : 53) * emptyRows,
+                    }}
+                  >
+                    <TableCell colSpan={6} />
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </Box>
+          <Box sx={{ display: { xs: "block", sm: "none" } }}>
+            <Table
+              sx={{
+                maxWidth: 750,
+                width: "100%",
+                overflowX: "auto",
+                whiteSpace: "nowrap",
+                textAlign: "center",
+              }}
+              aria-labelledby="tableTitle"
+              size={dense ? "small" : "medium"}
+            >
+              <ResponsivetableHead
+                numSelected={selected.length}
+                order={order}
+                orderBy={orderBy}
+                onSelectAllClick={handleSelectAllClick}
+                onRequestSort={handleRequestSort}
+                rowCount={rows.length}
+              />
+              <TableBody>
+                {stableSort(responsiveRows, getComparator(order, orderBy))
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => {
+                    const isItemSelected = isSelected(row.id);
+                    const labelId = `enhanced-table-checkbox-${index}`;
+
+                    return (
+                      <TableRow
+                        hover
+                        // onClick={(event) => handleClick(event, row.name)}
+                        role="checkbox"
+                        aria-checked={isItemSelected}
+                        tabIndex={-1}
+                        key={row.id}
+                        selected={isItemSelected}
+                        align="center"
+                      >
+                        <TableCell padding="checkbox" align="center">
+                          <Checkbox
+                            onClick={(event) => handleClick(event, row.id)}
+                            color="primary"
+                            checked={isItemSelected}
+                            inputProps={{
+                              "aria-labelledby": labelId,
+                            }}
+                          />
+                        </TableCell>
+                        <TableCell
+                          component="th"
+                          id={labelId}
+                          scope="row"
+                          padding="none"
+                          align="center"
+                        >
+                          <Typography variant="h5">{row.jobProfile}</Typography>
+                        </TableCell>
+                        <TableCell align="center">
+                          <Box sx={{ display: {xs:'flex', sm: "none" } }}>
+                            <TestMenu />
+                            <Button
+                            variant="contained"
+                            color="info"
+                            sx={{
+                              backgroundColor: theme.palette.login.main,
+                              ml:1
+                            }}
+                          >
+                            <Typography variant="h5">
+                              View
+                            </Typography>
+                          </Button>
+                          </Box>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                {emptyRows > 0 && (
+                  <TableRow
+                    style={{
+                      height: (dense ? 33 : 53) * emptyRows,
+                    }}
+                  >
+                    <TableCell colSpan={6} />
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </Box>
         </TableContainer>
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}

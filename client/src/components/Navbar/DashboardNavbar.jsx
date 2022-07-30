@@ -301,13 +301,13 @@ export default function PersistentDrawerLeft() {
       </Drawer>
       <Main open={open} sx={{maxWidth:'1300px', display:{xs:'none',sm:'block' }}}>
         <DrawerHeader />
-        <Analytics />
-        {/* <Jobs /> */}
+        {/* <Analytics /> */}
+        <Jobs />
       </Main>
       <ResponsiveMain open={open} sx={{maxWidth:'1300px', display:{xs:'block',sm:'none' }}}>
         <DrawerHeader />
-        <Analytics />
-        {/* <Jobs /> */}
+        {/* <Analytics /> */}
+        <Jobs />
       </ResponsiveMain>
     </Box>
   );
