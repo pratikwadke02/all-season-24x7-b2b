@@ -12,7 +12,7 @@ const ListJobsHeader = () => {
   ];
   return (
     <>
-      <Container sx={{ backgroundColor: theme.palette.background.default, width:'100%', boxShadow: 1, borderRadius:'4px', p:3, mb:2}}>
+      <Container sx={{ backgroundColor: theme.palette.background.default, width:'100%', boxShadow: 1, borderRadius:'4px', p:2, mb:2}}>
         <Box
           sx={{
             display: "flex",
