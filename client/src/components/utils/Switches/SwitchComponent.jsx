@@ -45,18 +45,21 @@ export default function SwitchComponent(props) {
             <PurpleSwitch checked={state.option_one} onChange={handleChange} name="option_one" />
           }
           label={options.option_one}
+          sx={{mb:{xs:1, sm:0}}}
         />
         <FormControlLabel
           control={
             <PurpleSwitch checked={state.option_two} onChange={handleChange} name="option_two" />
           }
           label={options.option_two}
+          sx={{mb:{xs:1, sm:0}}}
         />
         <FormControlLabel
           control={
             <PurpleSwitch checked={state.option_three} onChange={handleChange} name="option_three" />
           }
           label={options.option_three}
+          sx={{mb:{xs:1, sm:0}}}
         />
       </FormGroup>
     </FormControl>

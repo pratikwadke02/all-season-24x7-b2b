@@ -30,7 +30,7 @@ const Notification = () => {
             Activity
           </Typography>
         </Box>
-        <Box sx={{mt:1}}>
+        <Box sx={{mt:2}}>
           <SwitchComponent options={switchOptions} />
         </Box>
         <Box sx={{ mt: 2, display:'flex' }}>
