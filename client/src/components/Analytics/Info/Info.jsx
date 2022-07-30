@@ -46,37 +46,37 @@ const Info = () => {
         <Box sx={{ display: "flex", width:'100%' }}>
         <MultilineTextfield label='Bio' />
         </Box>
-        <Box sx={{ display: "flex", flexDirection: {xs:'column', sm:"row"}, mt: 2, mb: 2 }}>
+        <Box sx={{ display: "flex", flexDirection: {xs:'column', sm:"row"}, mt: 1.5, mb: 1 }}>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
-              mt: 2,
+              mt: .5,
               mb: 2,
-              mr: 2,
+              mr: 1,
               width: "100%",
             }}
           >
             <TextfieldComponent label="Birth Date" />
-            <Box sx={{ p: 2 }} />
+            <Box sx={{ p: 1 }} />
             <TextfieldComponent label="Website" />
-            <Box sx={{ p: 2 }} />
+            <Box sx={{ p: 1 }} />
             <SelectComponent label="Languages" items={items} />
           </Box>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
-              mt: 2,
+              mt: .5,
               mb: 1,
-              ml: {xs:0, sm:2},
+              ml: {xs:0, sm:1},
               width: "100%",
             }}
           >
             <TextfieldComponent label="Phone" />
-            <Box sx={{ p: 2 }} />
+            <Box sx={{ p: 1 }} />
             <TextfieldComponent label="Country" />
-            <Box sx={{ p: 2 }} />
+            <Box sx={{ p: 1 }} />
             <FormControl sx={{}}>
               <FormLabel
                 id="demo-row-radio-buttons-group-label"

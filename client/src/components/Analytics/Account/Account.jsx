@@ -88,7 +88,7 @@ const Account = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            mt: 3,
+            mt: {xs:2, sm:3},
             justifyContent: "space-between",
           }}
         >
@@ -104,7 +104,7 @@ const Account = () => {
             <Box sx={{ m: 1 }} />
             <TextfieldComponent id="nmame" label="Name" />
           </Box>
-          <Box sx={{m:1}} />
+          <Box sx={{m:{xs:0.5, sm:1}}} />
           <Box
             sx={{
               mb: 1,
@@ -117,7 +117,7 @@ const Account = () => {
             <Box sx={{ m: 1 }} />
             <TextfieldComponent id="role" label="Role" />
           </Box>
-          <Box sx={{m:1}} />
+          <Box sx={{m:{xs:0.5, sm:1}}} />
           <Box
             sx={{
               mb: 1,

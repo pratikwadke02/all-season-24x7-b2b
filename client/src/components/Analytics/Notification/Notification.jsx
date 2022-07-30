@@ -30,10 +30,10 @@ const Notification = () => {
             Activity
           </Typography>
         </Box>
-        <Box sx={{ p: 2 }}>
+        <Box sx={{mt:1}}>
           <SwitchComponent options={switchOptions} />
         </Box>
-        <Box sx={{ m: 2, display:'flex' }}>
+        <Box sx={{ mt: 2, display:'flex' }}>
           <Button
             color="info"
             variant="contained"
