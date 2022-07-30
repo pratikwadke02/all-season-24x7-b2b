@@ -8,7 +8,7 @@ import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import { Tooltip, Menu, Divider  } from '@mui/material';
+import { Tooltip, Menu, Divider, SwipeableDrawer  } from '@mui/material';
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import {images} from '../../constants/index';
 import SearchIcon from '@mui/icons-material/Search';
@@ -63,6 +63,26 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: `-${drawerWidth}px`,
+    // marginLeft: {xs: 0, sm:'-340px'},
+    ...(open && {
+      transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      marginLeft: 0,
+    }),
+  }),
+);
+
+const ResponsiveMain = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+  ({ theme, open }) => ({
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft:0,
     ...(open && {
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.easeOut,
@@ -228,6 +248,7 @@ export default function PersistentDrawerLeft() {
             textAlign: "center",
             backgroundColor: theme.palette.background.default,
             border: 'none',
+            // position: 'relative',
             }
         }}
         sx={{
@@ -237,7 +258,9 @@ export default function PersistentDrawerLeft() {
             width: drawerWidth,
             boxSizing: 'border-box',
           },
+          display: { xs: 'none', sm: 'block' },
         }}
+        // variant={{xs:"permanent", sm:"persistent"}}
         variant="persistent"
         anchor="left"
         open={open}
@@ -247,11 +270,45 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <DashboardSidebar />
       </Drawer>
-      <Main open={open} sx={{maxWidth:'1300px'}}>
+      <Drawer
+        PaperProps = {{
+          sx : {
+            p:1,
+            textAlign: "center",
+            backgroundColor: theme.palette.background.default,
+            border: 'none',
+            position: 'relative',
+            }
+        }}
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+          },
+          display: { xs: "block", sm: "none" },
+        }}
+        variant="temporary"
+        anchor="left"
+        open={open}
+        onClose={handleDrawerClose}
+      >
+
+        <DrawerHeader>
+        </DrawerHeader>
+        <DashboardSidebar />
+      </Drawer>
+      <Main open={open} sx={{maxWidth:'1300px', display:{xs:'none',sm:'block' }}}>
         <DrawerHeader />
         <Analytics />
         {/* <Jobs /> */}
       </Main>
+      <ResponsiveMain open={open} sx={{maxWidth:'1300px', display:{xs:'block',sm:'none' }}}>
+        <DrawerHeader />
+        <Analytics />
+        {/* <Jobs /> */}
+      </ResponsiveMain>
     </Box>
   );
 }

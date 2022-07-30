@@ -50,7 +50,7 @@ const Analytics = () => {
         borderRadius: "5px",
         // width: '',
         maxWidth: {lg: 'inherit'},
-        height: '100%',
+        // height: '100%',
         alignItems: "center",
       }}
     >
