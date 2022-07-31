@@ -13,6 +13,7 @@ import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 import CircleOutlined from "@mui/icons-material/CircleOutlined";
 import ListItemAction from "../ListItemAction/ListItemAction";
 import { theme } from "../../../theme";
+import {Link} from "react-router-dom";
 
 const CollapseComponent = (props) => {
   const { name, icon, link, items, isHeader } = props;
@@ -26,7 +27,11 @@ const CollapseComponent = (props) => {
   }
 
   const MenuItemRoot = (
-    <ListItemAction button onClick={handleClick}>
+    <Link to={link} style={{textDecoration:'none', color:theme.palette.text.primary}}>
+    <ListItemAction 
+      button onClick={handleClick}
+      key={name}
+    >
       <ListItemIcon sx={{ mr: 2 }}>{icon}</ListItemIcon>
       <ListItemText inset={!icon}>
         {isHeader ? (
@@ -44,6 +49,7 @@ const CollapseComponent = (props) => {
       )}
       {isExpandable && open && <ExpandMoreOutlinedIcon />}
     </ListItemAction>
+    </Link>
   );
 
   const MenuItemChildren = isExpandable ? (

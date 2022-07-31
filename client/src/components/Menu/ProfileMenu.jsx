@@ -102,7 +102,7 @@ const ProfileMenu = () => {
         </IconButton>
       </MenuItem>
       {/* <Divider /> */}
-      <Link to="/login" style={{ textDecoration: "none" }}>
+      {/* <Link to="/login" style={{ textDecoration: "none" }}> */}
       <MenuItem
         sx={{
           maxHeight: "40px",
@@ -117,7 +117,7 @@ const ProfileMenu = () => {
           </Typography>
         </IconButton>
       </MenuItem>
-      </Link>
+      {/* </Link> */}
     </MenuList>
   );
 };

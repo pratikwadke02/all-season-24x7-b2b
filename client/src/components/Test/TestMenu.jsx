@@ -4,6 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { IconButton } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { theme } from "../../theme";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import EditIcon from "@mui/icons-material/Edit";
@@ -36,13 +37,12 @@ export default function PositionedMenu() {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-        sx={{ backgroundColor: theme.palette.login.main }}
       >
-        <MoreHorizIcon
+        <MoreVertIcon
           fontSize="small"
           sx={{
             // color: theme.palette.primary.main,
-            color: theme.palette.background.default,
+            color: theme.palette.text.primary,
           }}
         />
       </IconButton>

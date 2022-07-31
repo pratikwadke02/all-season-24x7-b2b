@@ -719,19 +719,19 @@ export default function EnhancedTable() {
                         </TableCell>
                         <TableCell align="center">
                           <Box sx={{ display: {xs:'flex', sm: "none" } }}>
-                            <TestMenu />
                             <Button
                             variant="contained"
                             color="info"
                             sx={{
                               backgroundColor: theme.palette.login.main,
-                              ml:1
+                              mr:.5
                             }}
                           >
-                            <Typography variant="h5">
+                            <Typography variant="h5" sx={{fontWeight:theme.typography.fontWeightBold}}>
                               View
                             </Typography>
                           </Button>
+                          <TestMenu />
                           </Box>
                         </TableCell>
                       </TableRow>

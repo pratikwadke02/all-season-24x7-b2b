@@ -22,6 +22,7 @@ import Badge from '@mui/material/Badge';
 import {theme} from '../../theme';
 import Jobs from '../Jobs/Jobs';
 import MenuIcon from '@mui/icons-material/Menu';
+import {Routes, Route, BrowserRouter} from 'react-router-dom';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -159,12 +160,9 @@ export default function PersistentDrawerLeft() {
       {/* <CssBaseline /> */}
       <AppBar elevation={0} position="fixed" sx={{zIndex: (theme) => theme.zIndex.drawer + 1}} >
         <Toolbar>
-          <Box sx={{display:'flex', minWidth:'235px', justifyContent:'space-between'}}>
+          <Box sx={{display:'flex', minWidth:{xs:'170px' ,sm:'235px'}, justifyContent:'space-between', flexDirection:{xs:'row-reverse', sm:'row'}}}>
           <Box sx={{display:'flex', alignItems:'center'}}>
           <img src={images.HomeLogo} alt="dashboard-logo"/>
-                {/* <Typography variant='h2' fontWeight={800} paddingLeft={1}sx={{color: theme.palette.text.primary}}>
-                  MATERIO
-          </Typography> */}
           </Box>
           <IconButton
             color="inherit"
@@ -172,11 +170,11 @@ export default function PersistentDrawerLeft() {
             onClick={handleDrawerOpen}
             edge="start"  //...(open && { display: 'none' })
           >
-            <MenuIcon fontSize='large' sx={{backgroundColor:theme.palette.login.main, color:theme.palette.background.default, borderRadius:'4px'}} />
+            <MenuIcon fontSize='large' sx={{backgroundColor:theme.palette.background.default, color:theme.palette.text.primary, borderRadius:'4px'}} />
           </IconButton>
           </Box>
           <Box sx={{ flexGrow: 1, display:'flex', ml:4}}>
-              <IconButton>
+              <IconButton sx={{display:{xs:'none',sm:'block'}}}>
                 <SearchIcon fontSize="large" />
               </IconButton>
             </Box>
@@ -205,10 +203,10 @@ export default function PersistentDrawerLeft() {
           >
             <NotificationMenu />
             </Menu>
-            <Tooltip title="Open settings" sx={{pl:1}}>
+            <Tooltip title="Open settings" sx={{ml:1}}>
               <IconButton
                 onClick={handleOpenUserMenu}
-                sx={{ p: 0, display: { xs: "none", sm: "block" } }}
+                sx={{ p: 0, display: { xs: "block", sm: "block" } }}
               >
               <StyledBadge
               overlap="circular"
@@ -241,6 +239,7 @@ export default function PersistentDrawerLeft() {
           </Box>
         </Toolbar>
       </AppBar>
+      <BrowserRouter>
       <Drawer
         PaperProps = {{
           sx : {
@@ -301,14 +300,23 @@ export default function PersistentDrawerLeft() {
       </Drawer>
       <Main open={open} sx={{maxWidth:'1300px', display:{xs:'none',sm:'block' }}}>
         <DrawerHeader />
+        <Routes>
+          <Route path="/all-season-24x7-b2b" element={<Analytics />} /> 
+          <Route path="/jobs" element={<Jobs/>} />
+        </Routes>
         {/* <Analytics /> */}
-        <Jobs />
+        {/* <Jobs /> */}
       </Main>
       <ResponsiveMain open={open} sx={{maxWidth:'1300px', display:{xs:'block',sm:'none' }}}>
         <DrawerHeader />
+        <Routes>
+          <Route path="/all-season-24x7-b2b" element={<Analytics />} /> 
+          <Route path="/jobs" element={<Jobs/>} />
+        </Routes>
         {/* <Analytics /> */}
-        <Jobs />
+        {/* <Jobs /> */}
       </ResponsiveMain>
+      </BrowserRouter>
     </Box>
   );
 }

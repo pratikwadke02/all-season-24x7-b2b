@@ -23,7 +23,7 @@ const appsAndPagesData = [
   {
     name: "Dashboard",
     icon: <HomeOutlinedIcon fontSize="large" />,
-    link: "/",
+    link: "/dashboard",
     isHeader: true,
     items: [
       {
@@ -43,6 +43,18 @@ const appsAndPagesData = [
       },
     ],
   },
+  {
+    name: "Analytics",
+    icon: <PersonOutlineOutlinedIcon fontSize="large" />,
+    link: "/all-season-24x7-b2b",
+    isHeader: true,
+  },
+  {
+    name: "Jobs",
+    icon: <EmailOutlinedIcon fontSize="large" />,
+    link: "/jobs",
+    isHeader: true,
+  }
 ];
 
 const userIntefaceData = [

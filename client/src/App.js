@@ -10,13 +10,14 @@ function App() {
   return (
     <>
     <ThemeProvider theme = {theme}>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/all-season-24x7-b2b" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <Dashboard />
     </ThemeProvider>
     </>
   );
