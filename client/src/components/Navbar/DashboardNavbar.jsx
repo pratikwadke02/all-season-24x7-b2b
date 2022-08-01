@@ -53,7 +53,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-const drawerWidth = 340;   // width of the drawer 280
+const drawerWidth = 280;   // width of the drawer 280
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -160,8 +160,8 @@ export default function PersistentDrawerLeft() {
       {/* <CssBaseline /> */}
       <AppBar elevation={0} position="fixed" sx={{zIndex: (theme) => theme.zIndex.drawer + 1}} >
         <Toolbar>
-          <Box sx={{display:'flex', minWidth:{xs:'170px' ,sm:'235px'}, justifyContent:'space-between', flexDirection:{xs:'row-reverse', sm:'row'}}}>
-          <Box sx={{display:'flex', alignItems:'center'}}>
+          <Box sx={{display:'flex', minWidth:{xs:'170px' ,sm:'235px'}, justifyContent:'space-between',alignItems:'center', flexDirection:{xs:'row-reverse', sm:'row'}}}>
+          <Box sx={{display:'flex'}}>
           <img src={images.HomeLogo} alt="dashboard-logo"/>
           </Box>
           <IconButton
@@ -173,8 +173,8 @@ export default function PersistentDrawerLeft() {
             <MenuIcon fontSize='large' sx={{backgroundColor:theme.palette.background.default, color:theme.palette.text.primary, borderRadius:'4px'}} />
           </IconButton>
           </Box>
-          <Box sx={{ flexGrow: 1, display:'flex', ml:4}}>
-              <IconButton sx={{display:{xs:'none',sm:'block'}}}>
+          <Box sx={{ flexGrow: 1, display:'flex',alignItems:'center', flexDirection:'row', ml:4}}>
+              <IconButton sx={{display:{xs:'none',sm:'none'}}}>
                 <SearchIcon fontSize="large" />
               </IconButton>
             </Box>
