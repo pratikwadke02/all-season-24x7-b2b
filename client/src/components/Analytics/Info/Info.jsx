@@ -112,7 +112,7 @@ const Info = () => {
             </FormControl>
           </Box>
         </Box>
-        <Box sx={{}}>
+        <Box sx={{mb:2}}>
           <Button
             variant="contained"
             color="info"

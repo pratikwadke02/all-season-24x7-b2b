@@ -35,11 +35,11 @@ const CollapseComponent = (props) => {
       <ListItemIcon sx={{ mr: 2 }}>{icon}</ListItemIcon>
       <ListItemText inset={!icon}>
         {isHeader ? (
-           <Typography variant="h3" sx={{mb:-.15}}>
+           <Typography variant="h4" sx={{mb:-.15}}>
            {name}
            </Typography>
         ): (
-          <Typography variant="h4" sx={{mb:-.15}}>
+          <Typography variant="h5" sx={{mb:-.15}}>
             {name}
           </Typography>
         )}

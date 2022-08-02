@@ -19,8 +19,8 @@ const Billing = () => {
   return (
     <>
       <Container sx={{ display: "flex", flexDirection: {xs:'column', lg:'row'}, maxWidth:{xs:'100%', lg:'inherit'}, alignItems:'center' }}>
-        <Box sx={{ p: 2, width: "100%" }} flex={1}>
-          <Typography variant="h2" sx={{ color: theme.palette.text.primary, fontWeight: theme.typography.fontWeightBold }}>
+        <Box sx={{mr:2, width: "100%" }} flex={1}>
+          <Typography variant="h1" sx={{ color: theme.palette.text.primary, fontWeight: theme.typography.fontWeightBold }}>
             Payment Method
           </Typography>
           <FormControl>
@@ -49,7 +49,7 @@ const Billing = () => {
             <Box sx={{ p: 1 }} />
             <TextfieldComponent label="CVV Code" type="password" />
           </Box>
-          <Box >
+          <Box sx={{mb:{xs:2} }} >
             <Button
               variant="contained"
               color="info"
@@ -76,6 +76,7 @@ const Billing = () => {
         </Box>
         <Box
           sx={{
+            mb:{xs:2},
             border: "1px solid lightgrey",
             borderRadius: "10px",
             p: 1.5,

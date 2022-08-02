@@ -29,6 +29,7 @@ const Jobs = () => {
           borderRadius: "10px",
           maxWidth: 1132,
           maxWidth:{ xs:"100%" , lg:"inherit"},
+          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
         }}
       >
         <TabComponent data={data} />

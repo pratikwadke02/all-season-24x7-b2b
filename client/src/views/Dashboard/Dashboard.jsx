@@ -9,7 +9,7 @@ const Dashboard = () => {
   return (
     <>
     <Box 
-    bgcolor={'#f4f5fa'} sx={{
+    bgcolor={'#ebf1f4'} sx={{
       minHeight:{xs:'100vh'}
     }}>
         <DashboardNavbar />

@@ -156,7 +156,7 @@ const Account = () => {
             </Typography>
           </Box>
         </Box>
-        <Box sx={{mt:2}}>
+        <Box sx={{mt:2, mb:2}}>
           <Button
             variant="contained"
             color="info"

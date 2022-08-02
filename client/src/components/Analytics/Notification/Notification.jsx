@@ -14,7 +14,7 @@ const Notification = () => {
 
   return (
     <>
-      <Container sx={{ display: "flex", flexDirection: "column",maxWidth:{xs:'100%', lg:'inherit'}, p: 3 }}>
+      <Container sx={{ display: "flex", flexDirection: "column",maxWidth:{xs:'100%', lg:'inherit'} }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <BarChartOutlinedIcon
             fontSize="large"
@@ -33,7 +33,7 @@ const Notification = () => {
         <Box sx={{mt:2}}>
           <SwitchComponent options={switchOptions} />
         </Box>
-        <Box sx={{ mt: 2, display:'flex' }}>
+        <Box sx={{ mt: 2,mb:2, display:'flex' }}>
           <Button
             color="info"
             variant="contained"

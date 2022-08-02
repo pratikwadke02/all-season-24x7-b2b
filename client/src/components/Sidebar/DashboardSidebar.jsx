@@ -169,7 +169,7 @@ const userIntefaceData = [
     ],
   },
   {
-    name: "Dialogue Examples",
+    name: "Dialogue",
     icon: <StarBorderOutlinedIcon fontSize="large" />,
     link: "/dialogue",
     isHeader: true,
@@ -243,29 +243,29 @@ const DashboardSidebar = () => {
 
   return (
     <>
-      <List sx={{ p: 1 , pt:2, pb:2}}>
+      <List sx={{ p: 1}}>
         {appsAndPagesData.map((item, index) => {
           return <CollapseComponent {...item} key={index} />;
         })}
       </List>
-      <Divider textAlign="left" sx={{ pt: 1, pb: 1 }}>
-        <Typography sx={{ mb: "-.75rem" }}>APPS & PAGES</Typography>
+      <Divider  textAlign="left" sx={{ pt: 1, pb: 2 }}>
+        <Typography variant="h6" sx={{ mb: "-.75rem",color:theme.palette.text.secondary, fontWeight:theme.typography.fontWeightBold }}>APPS & PAGES</Typography>
       </Divider>
-      <List sx={{ p: 1,  pt:2, pb:2 }}>
+      <List sx={{ p: 1}}>
         {userIntefaceData.map((item, index) => {
           return <CollapseComponent {...item} key={index} />;
         })}
       </List>
-      <Divider textAlign="left" sx={{ pt: 1, pb: 1 }}>
-        <Typography sx={{ mb: "-.75rem" }}>USER INTERFACE</Typography>
+      <Divider textAlign="left" sx={{ pt: 1, pb: 2 }}>
+        <Typography variant="h6" sx={{ mb: "-.75rem",color:theme.palette.text.secondary, fontWeight:theme.typography.fontWeightBold }}>USER INTERFACE</Typography>
       </Divider>
-      <List sx={{ p: 1 , pt:2, pb:2}}>
+      <List sx={{ p: 1}}>
         {formsAndTablesData.map((item, index) => {
           return <CollapseComponent {...item} key={index} />;
         })}
       </List>
-      <Divider textAlign="left" sx={{ pt: 1, pb: 1 }}>
-        <Typography sx={{ mb: "-.75rem" }}>FORMS & TABLES</Typography>
+      <Divider textAlign="left" sx={{ pt: 1}}>
+        <Typography variant="h6" sx={{ mb: "-.75rem",color:theme.palette.text.secondary, fontWeight:theme.typography.fontWeightBold }}>FORMS & TABLES</Typography>
       </Divider>
     </>
   );
