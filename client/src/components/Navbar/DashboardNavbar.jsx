@@ -201,7 +201,7 @@ export default function PersistentDrawerLeft() {
                   backgroundColor: theme.palette.background.default,
                   color: theme.palette.text.primary,
                   borderRadius: "4px",
-                  border: "1px solid" + theme.palette.text.secondary,
+                  // border: "1px solid" + theme.palette.text.secondary,
                 }}
               />
               <MenuIcon
@@ -211,7 +211,7 @@ export default function PersistentDrawerLeft() {
                   backgroundColor: theme.palette.background.default,
                   color: theme.palette.text.primary,
                   borderRadius: "4px",
-                  border: "1px solid" + theme.palette.text.secondary,
+                  // border: "1px solid" + theme.palette.text.secondary,
                 }}
               />
             </IconButton>
