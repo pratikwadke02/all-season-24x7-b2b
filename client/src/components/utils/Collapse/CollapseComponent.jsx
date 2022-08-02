@@ -32,7 +32,7 @@ const CollapseComponent = (props) => {
       button onClick={handleClick}
       key={name}
     >
-      <ListItemIcon sx={{ mr: 2 }}>{icon}</ListItemIcon>
+      <ListItemIcon sx={{ mr: 1 }}>{icon}</ListItemIcon>
       <ListItemText inset={!icon}>
         {isHeader ? (
            <Typography variant="h4" sx={{mb:-.15}}>

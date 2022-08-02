@@ -25,6 +25,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchWithICon from "../utils/Search/SearchWithIcon";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import SearchWithIcon from "../utils/Search/SearchWithIcon";
+import Login from "../../views/Auth/Login";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -165,6 +166,7 @@ export default function PersistentDrawerLeft() {
   return (
     <Box sx={{ display: "flex" }}>
       {/* <CssBaseline /> */}
+      <BrowserRouter>
       <AppBar
         elevation={0}
         position="fixed"
@@ -189,12 +191,23 @@ export default function PersistentDrawerLeft() {
             <IconButton
               color="inherit"
               aria-label="open drawer"
-              onClick={toggleDrawer(true)}
+              onClick={toggleDrawer(!open)}
               edge="start" //...(open && { display: 'none' })
             >
               <MenuIcon
                 fontSize="large"
                 sx={{
+                  display: { xs: "none", sm: "block" },
+                  backgroundColor: theme.palette.background.default,
+                  color: theme.palette.text.primary,
+                  borderRadius: "4px",
+                  border: "1px solid" + theme.palette.text.secondary,
+                }}
+              />
+              <MenuIcon
+                fontSize="medium"
+                sx={{
+                  display: { xs: "block", sm: "none" },
                   backgroundColor: theme.palette.background.default,
                   color: theme.palette.text.primary,
                   borderRadius: "4px",
@@ -232,11 +245,15 @@ export default function PersistentDrawerLeft() {
             </Box>
           </Box>
           <Box sx={{ flexGrow: 0, display: "flex" }}>
-            <Tooltip title="Open Notifications" sx={{ mr: { xs: 0, sm: 2 } }}>
+            <Tooltip title="Open Notifications" sx={{ mr: { xs: 1, sm: 2 } }}>
               <IconButton onClick={handleOpenNotificationsMenu}>
                 <NotificationsNoneRoundedIcon
                   fontSize="large"
-                  sx={{ color: theme.palette.text.primary }}
+                  sx={{ color: theme.palette.text.primary, display: {xs:'none', sm:'block'} }}
+                />
+                <NotificationsNoneRoundedIcon
+                  fontSize="medium"
+                  sx={{color: theme.palette.text.primary, display: {xs:'block', sm:'none'} }}
                 />
               </IconButton>
             </Tooltip>
@@ -269,13 +286,13 @@ export default function PersistentDrawerLeft() {
                   anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                   variant="dot"
                 >
-                  <Avatar alt="John Doe" src={images.Userpic} />
+                  <Avatar alt="John Doe" src={images.Userpic} sx={{width:{xs:28, sm:40}, height:{xs:28, sm:40}}} />
                 </StyledBadge>
               </IconButton>
             </Tooltip>
             <Menu
               PaperProps={{ sx: { width: "100%", maxWidth: "230px" } }}
-              sx={{ mt: "45px" }}
+              sx={{mr:1, mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -295,7 +312,6 @@ export default function PersistentDrawerLeft() {
           </Box>
         </Toolbar>
       </AppBar>
-      <BrowserRouter>
         <Drawer
           PaperProps={{
             sx: {
@@ -364,6 +380,7 @@ export default function PersistentDrawerLeft() {
           <Routes>
             <Route path="/all-season-24x7-b2b" element={<Analytics />} />
             <Route path="/jobs" element={<Jobs />} />
+            {/* <Route path="/logout" element={<Login />} /> */}
           </Routes>
           {/* <Analytics /> */}
           {/* <Jobs /> */}
@@ -376,6 +393,7 @@ export default function PersistentDrawerLeft() {
           <Routes>
             <Route path="/all-season-24x7-b2b" element={<Analytics />} />
             <Route path="/jobs" element={<Jobs />} />
+            {/* <Route path="/logout" element={<Login />} /> */}
           </Routes>
           {/* <Analytics /> */}
           {/* <Jobs /> */}
